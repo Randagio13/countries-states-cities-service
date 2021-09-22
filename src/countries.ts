@@ -1,15 +1,18 @@
 import countries from './data/countries.json'
+import { dataFiltered } from './utils'
 
 type Translations = typeof countries[0]['translations']
 
 type Args = {
-  filters?: ({
-    iso2: string
-    iso3?: never
-  } | {
-    iso2?: never
-    iso3: string
-  })
+  filters?:
+    | {
+        iso2: string
+        iso3?: never
+      }
+    | {
+        iso2?: never
+        iso3: string
+      }
   locale?: keyof Translations
 }
 
@@ -19,13 +22,7 @@ export function getCountries(args?: Args): Countries {
   let data = [...countries]
   if (args?.filters !== undefined) {
     const { filters } = args
-    data = data.filter(({ iso2, iso3 }) => {
-      if (filters?.iso2)
-        return filters.iso2.toLowerCase() === iso2.toLowerCase()
-      if (filters?.iso3)
-        return filters.iso3.toLowerCase() === iso3.toLowerCase()
-      return true
-    })
+    data = dataFiltered(data, filters as any)
   }
   if (args?.locale !== undefined) {
     const { locale } = args
