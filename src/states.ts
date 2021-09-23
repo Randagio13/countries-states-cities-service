@@ -16,10 +16,17 @@ type States = {
 }[]
 
 type Args = {
-  filters?: {
-    country_code?: string
-    is_region?: boolean
-  }
+  filters?:
+    | {
+        country_code?: never
+        state_code?: never
+        is_region?: never
+      }
+    | {
+        country_code: string
+        state_code?: string
+        is_region?: boolean
+      }
   locale?: Translations
 }
 

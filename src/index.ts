@@ -1,3 +1,5 @@
-export { default as Countries } from './countries'
-export { default as States } from './states'
-export { default as Cities } from './cities'
+import { default as Countries } from './countries'
+import { default as States } from './states'
+import { default as Cities } from './cities'
+
+export { Countries, States, Cities }

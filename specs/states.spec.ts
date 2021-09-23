@@ -66,4 +66,18 @@ describe('States.getStates', () => {
     expect(c[0].name).toBe('Provincia di Benevento')
     expect(c).toHaveLength(109)
   })
+  it('Get one italian province and locale', () => {
+    const c = States.getStates({
+      filters: {
+        country_code: 'IT',
+        is_region: false,
+        state_code: 'GE',
+      },
+      locale: 'it',
+    })
+    expect(c).toBeDefined()
+    expect(c[0]).toHaveProperty('name')
+    expect(c[0].name).toBe('Provincia di Genova')
+    expect(c).toHaveLength(1)
+  })
 })

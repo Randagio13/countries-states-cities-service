@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "tsc --watch",
-    "build": "tsc --build",
+    "build": "tsc --build --pretty --verbose",
     "test": "jest",
     "prepare": "npm run build",
     "size": "size-limit",
