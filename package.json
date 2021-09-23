@@ -66,6 +66,11 @@
   "devDependencies": {
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-typescript": "^7.15.0",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/commit-analyzer": "^9.0.1",
+    "@semantic-release/git": "^10.0.0",
+    "@semantic-release/npm": "^8.0.0",
+    "@semantic-release/release-notes-generator": "^10.0.2",
     "@size-limit/preset-small-lib": "^4.5.5",
     "@types/jest": "^27.0.2",
     "husky": "^7.0.2",
