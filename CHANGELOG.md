@@ -1,3 +1,10 @@
+# [1.0.0-alpha.4](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-09-23)
+
+
+### Bug Fixes
+
+* Export modules ([70cb7dc](https://github.com/Randagio13/countries-states-cities-service/commit/70cb7dc2d82dfd7644807b03e1cfed5c3897ac72))
+
 # [1.0.0-alpha.3](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-09-23)
 
 
