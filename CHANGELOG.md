@@ -1,3 +1,10 @@
+# [1.0.0-alpha.5](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-09-23)
+
+
+### Bug Fixes
+
+* Export turn into commonJS ([c5e9447](https://github.com/Randagio13/countries-states-cities-service/commit/c5e94476185dde7f41d98861830597a40c974edc))
+
 # [1.0.0-alpha.4](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-09-23)
 
 
