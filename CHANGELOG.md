@@ -1,3 +1,11 @@
+# [1.0.0-alpha.3](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-09-23)
+
+
+### Bug Fixes
+
+* Export module ([abbd094](https://github.com/Randagio13/countries-states-cities-service/commit/abbd094187a3049c1a49747de0daf9a111fdd8ad))
+* Rewrite jest config ([ea3a3d2](https://github.com/Randagio13/countries-states-cities-service/commit/ea3a3d2e33fb4b1787321350f3a90f0645e1da9c))
+
 # [1.0.0-alpha.2](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-09-23)
 
 
