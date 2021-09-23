@@ -66,15 +66,4 @@ describe('States.getStates', () => {
     expect(c[0].name).toBe('Provincia di Benevento')
     expect(c).toHaveLength(109)
   })
-  // it('Get a country by iso3', () => {
-  //   const c = States.getStates({
-  //     filters: {
-  //       isRegion: true,
-  //     },
-  //   })
-  //   expect(c).toBeDefined()
-  //   expect(c[0]).toHaveProperty('name')
-  //   expect(c[0].name).toBe('Italy')
-  //   expect(c).toHaveLength(1)
-  // })
 })

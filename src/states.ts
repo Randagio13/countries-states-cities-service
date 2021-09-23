@@ -1,8 +1,19 @@
-import { States } from '.'
 import states from './data/states.json'
+import { Translations } from './countries'
 import { dataFiltered } from './utils'
+import { States } from '.'
 
-type Translations = 'it'
+type States = {
+  state_code: string
+  id: number
+  longitude: string
+  is_region?: boolean
+  latitude: string
+  country_code: string
+  country_id: number
+  translations?: Record<Translations, string>
+  name: string
+}[]
 
 type Args = {
   filters?: {
@@ -12,10 +23,8 @@ type Args = {
   locale?: Translations
 }
 
-type States = typeof states
-
 export function getStates(args?: Args): States {
-  let data = [...states]
+  let data = [...(states as States)]
   if (args?.filters !== undefined) {
     const { filters } = args
     data = dataFiltered(data, filters as any)
@@ -24,9 +33,8 @@ export function getStates(args?: Args): States {
     const { locale } = args
     data = data.map(item => {
       const newItem = { ...item }
-      const name = newItem?.translations
-        ? newItem?.translations?.[locale]
-        : item.name
+      const name =
+        'translations' in newItem ? newItem?.translations?.[locale] : item.name
       if (name) newItem.name = name
       return newItem
     })
