@@ -1,3 +1,10 @@
+# [1.0.0-alpha.2](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-09-23)
+
+
+### Bug Fixes
+
+* Export object and add state_code as filter ([10e8076](https://github.com/Randagio13/countries-states-cities-service/commit/10e80767b3cf49dd17efd12b71532ca1bc223171))
+
 # 1.0.0-alpha.1 (2021-09-23)
 
 
