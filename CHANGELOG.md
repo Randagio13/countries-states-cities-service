@@ -1,3 +1,21 @@
+# 1.0.0 (2021-09-24)
+
+
+### Bug Fixes
+
+* Export module ([9730f03](https://github.com/Randagio13/countries-states-cities-service/commit/9730f0304428b521eaff16be2f9c13400a2802d3))
+* Export modules ([e7f0e3d](https://github.com/Randagio13/countries-states-cities-service/commit/e7f0e3dd057647460dba59a0771c1f8f80b5511c))
+* Export object and add state_code as filter ([bc8a057](https://github.com/Randagio13/countries-states-cities-service/commit/bc8a0576430a9b7d6d261d5dd2acbcec1d41dfba))
+* Export turn into commonJS ([a2bbf1b](https://github.com/Randagio13/countries-states-cities-service/commit/a2bbf1b678d4c796fce0cfc41243305ecf3e3913))
+* Rewrite jest config ([7920ad5](https://github.com/Randagio13/countries-states-cities-service/commit/7920ad54a2ccde4fa458bb64ec42d11603b2cfd4))
+
+
+### Features
+
+* Add multi-filter and tests for states ([316a2de](https://github.com/Randagio13/countries-states-cities-service/commit/316a2deb89889010fcd569ef39852d378e5111b9))
+* Add relative path ([90cb595](https://github.com/Randagio13/countries-states-cities-service/commit/90cb59501829147efd9aa6cd0ada2e9f75a9bc52))
+* Inital project and create Countries service ([3987ee3](https://github.com/Randagio13/countries-states-cities-service/commit/3987ee3e5fc6d51e3ac593ad5bb24165594ed9ec))
+
 # [1.0.0-alpha.6](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2021-09-24)
 
 
