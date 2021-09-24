@@ -1,3 +1,10 @@
+# [1.0.0-alpha.6](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2021-09-24)
+
+
+### Features
+
+* Add relative path ([c3ab7e1](https://github.com/Randagio13/countries-states-cities-service/commit/c3ab7e16ad9fc86afd80877f0d48cfe82aa45bf2))
+
 # [1.0.0-alpha.5](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-09-23)
 
 
