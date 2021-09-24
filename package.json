@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "tsc --watch",
-    "build": "tsc --build --pretty --verbose",
+    "build": "tsc --build --pretty --verbose && npx tsc-alias",
     "test": "jest",
     "prepare": "npm run build",
     "size": "size-limit",
