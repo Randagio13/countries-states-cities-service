@@ -1,103 +1,176 @@
-# TSDX User Guide
+# Countries States Cities Service
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+## Mission
 
-> This TSDX setup is meant for developing libraries (not apps!) that can be published to NPM. If you’re looking to build a Node app, you could use `ts-node-dev`, plain `ts-node`, or simple `tsc`.
+- I've never found any complete library to get all world countries, states, and cities. I want to develop the best one. Of course, contributors are welcome!!
+- I took this [data](https://github.com/dr5hn/countries-states-cities-database) as a starting point.
 
-> If you’re new to TypeScript, checkout [this handy cheatsheet](https://devhints.io/typescript)
+## Getting started
 
-## Commands
+To get started with this library, you need to install it and add it to your project.
 
-TSDX scaffolds your new library inside `/src`.
+### Installation
 
-To run TSDX, use:
+Countries States Cities Service is available as an npm package.
 
 ```bash
-npm start # or yarn start
+# npm
+npm install countries-states-cities-service
+# yarn
+yarn add countries-states-cities-service
 ```
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+### Import
 
-To do a one-off build, use `npm run build` or `yarn build`.
+Import single named import as follow:
 
-To run tests, use `npm test` or `yarn test`.
-
-## Configuration
-
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`.
-
-### Bundle Analysis
-
-[`size-limit`](https://github.com/ai/size-limit) is set up to calculate the real cost of your library with `npm run size` and visualize the bundle with `npm run analyze`.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```txt
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
+```typescript
+import { Countries, States, Cities } from 'countries-states-cities-service'
 ```
 
-### Rollup
+## Usage
 
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+The code snippet below show how to put into action `countries-states-cities-service` in some common use cases.
 
-### TypeScript
+- [Countries](#countries)
+- [States](#states)
+- [Cities](#cities)
 
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
+### Countries
 
-## Continuous Integration
+> How to get all countries.
 
-### GitHub Actions
-
-Two actions are added by default:
-
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
-}
+```typescript
+const countries = Countries.getCountries()
 ```
 
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
+> How to get all countries with localization.
 
-## Module Formats
+```typescript
+const countries = Countries.getCountries({ locale: 'it' })
+```
 
-CJS, ESModules, and UMD module formats are supported.
+> How to get a country by iso2 code.
 
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
+```typescript
+const countries = Countries.getCountries({ filters: { iso2: 'US' } })
+```
 
-## Named Exports
+> How to get a country by iso2 code and localization.
 
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
+```typescript
+const countries = Countries.getCountries({
+  filters: { iso2: 'IT' },
+  locale: 'it',
+})
+```
 
-## Including Styles
+> How to get a country by iso3 code.
 
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
+```typescript
+const countries = Countries.getCountries({ filters: { iso3: 'ITA' } })
+```
 
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
+### States
 
-## Publishing to NPM
+> How to get all states.
 
-We recommend using [np](https://github.com/sindresorhus/np).
+```typescript
+const states = States.getStates()
+```
+
+> How to get all states with localization.
+
+```typescript
+const states = States.getStates({ locale: 'it' })
+```
+
+> How to get states by country code.
+
+```typescript
+const states = States.getStates({ filters: { country_code: 'IT' } })
+```
+
+> How to get states by country code and localization _(available only for italian states for now)_.
+
+```typescript
+const states = States.getStates({
+  filters: { country_code: 'IT' },
+  locale: 'it',
+})
+```
+
+> How to get regions by country code _(available only for italian states for now)_.
+
+```typescript
+const states = States.getStates({
+  filters: {
+    country_code: 'IT',
+    is_region: true,
+  },
+})
+```
+
+> How to get a state by country code and state code.
+
+```typescript
+const states = States.getStates({
+  filters: {
+    country_code: 'IT',
+    state_code: 'GE',
+  },
+})
+```
+
+### Cities
+
+> How to get all cities.
+
+```typescript
+const cities = Cities.getCities()
+```
+
+> How to get italian cities.
+
+```typescript
+const cities = Cities.getCities({
+  filters: {
+    country_code: 'IT',
+  },
+})
+```
+
+> How to get italian ligurian cities.
+
+```typescript
+const cities = Cities.getCities({
+  filters: {
+    country_code: 'IT',
+    state_code: '42', // Region iso2
+  },
+})
+```
+
+## Contributors
+
+Any contribution is really appreciated.
+
+1. Fork [this repository](https://github.com/commercelayer/sanity-template-commercelayer) (learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
+
+2. Clone the forked repository.
+
+3. Make your changes and create a pull request ([learn how to do this](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)).
+
+4. I will attend to your pull request and provide some feedback.
+
+## Need help?
+
+Ping me [on Twitter](https://twitter.com/randagio19)
+
+## License
+
+This repository is licensed under the [MIT](LICENSE) License.
+
+## Sponsor
+
+Don't be shy! 😜
