@@ -1,4 +1,4 @@
-import { States } from '../src'
+import { States } from '../lib'
 
 describe('States.getStates', () => {
   it('Get all countries', () => {
@@ -17,7 +17,7 @@ describe('States.getStates', () => {
     expect(c[0].name).toBe('Badakhshan')
     expect(c.length).toBeGreaterThan(10)
   })
-  it('Get a country by country_code', () => {
+  it('Get states by country_code', () => {
     const c = States.getStates({
       filters: {
         country_code: 'IT',
