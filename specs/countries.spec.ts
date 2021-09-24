@@ -1,4 +1,4 @@
-import { Countries } from '../src'
+import { Countries } from '../lib'
 
 describe('Countries', () => {
   it('Get all countries', () => {
