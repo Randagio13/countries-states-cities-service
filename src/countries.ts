@@ -1,4 +1,4 @@
-import countries from './data/countries.json'
+import countries from '#data/countries.json'
 import { dataFiltered } from './utils'
 
 export type Translations =
@@ -64,7 +64,7 @@ export function getCountries(args?: Args): Countries {
   }
   if (args?.locale !== undefined) {
     const { locale } = args
-    data = data.map(item => {
+    data = data.map((item) => {
       const newItem = { ...item }
       const name = newItem.translations?.[locale]
       if (name) newItem.name = name

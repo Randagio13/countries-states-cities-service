@@ -1,4 +1,4 @@
-import states from './data/states.json'
+import states from '#data/states.json'
 import { Translations } from './countries'
 import { dataFiltered } from './utils'
 import { States } from '.'
@@ -38,7 +38,7 @@ export function getStates(args?: Args): States {
   }
   if (args?.locale !== undefined) {
     const { locale } = args
-    data = data.map(item => {
+    data = data.map((item) => {
       const newItem = { ...item }
       const name =
         'translations' in newItem ? newItem?.translations?.[locale] : item.name

@@ -1,4 +1,4 @@
-import cities from './data/cities.json'
+import cities from '#data/cities.json'
 import { dataFiltered } from './utils'
 
 type Cities = {
