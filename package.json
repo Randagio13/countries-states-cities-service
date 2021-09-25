@@ -1,8 +1,19 @@
 {
+  "name": "countries-states-cities-service",
+  "author": "Alessandro Casazza",
   "version": "1.0.0",
+  "description": "Get the World's countries, states, regions and cities",
+  "repository": "https://github.com/Randagio13/countries-states-cities-service.git",
   "license": "MIT",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
+  "keywords": [
+    "world",
+    "countries",
+    "states",
+    "regions",
+    "cities"
+  ],
   "files": [
     "lib",
     "package.json"
@@ -54,13 +65,12 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "countries-states-cities-service",
-  "author": "Alessandro Casazza",
   "module": "lib/index.js",
   "size-limit": [
     {
       "path": "lib",
-      "limit": "10 KB"
+      "limit": "35 MB",
+      "webpack": false
     }
   ],
   "devDependencies": {
