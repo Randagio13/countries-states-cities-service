@@ -1,4 +1,27 @@
+<div align="center">
+  
 # Countries States Cities Service
+
+[![NPM](https://nodei.co/npm/countries-states-cities-service.png?compact=true)](https://nodei.co/npm/countries-states-cities-service/)
+<br />
+[![](https://img.shields.io/npm/dt/countries-states-cities-service.svg?style=flat-square)](https://www.npmjs.com/package/countries-states-cities-service)
+
+</div>
+
+## Table of contents
+
+1. [Mission](#mission)
+2. [Getting started](#getting-started)
+   - [Installation](#installation)
+   - [Import](#import)
+3. [Usage](#usage)
+   - [Countries](#countries)
+   - [States](#states)
+   - [Cities](#cities)
+5. [Contributors](#contributors)
+6. [Need help](#need-help)
+7. [Licence](#license)
+8. [Sponsor](#sponsor)
 
 ## Mission
 
@@ -16,6 +39,7 @@ Countries States Cities Service is available as an npm package.
 ```bash
 # npm
 npm install countries-states-cities-service
+
 # yarn
 yarn add countries-states-cities-service
 ```
@@ -38,25 +62,25 @@ The code snippet below show how to put into action `countries-states-cities-serv
 
 ### Countries
 
-> How to get all countries.
+- Get all countries.
 
 ```typescript
 const countries = Countries.getCountries()
 ```
 
-> How to get all countries with localization.
+- Get all countries with localization.
 
 ```typescript
 const countries = Countries.getCountries({ locale: 'it' })
 ```
 
-> How to get a country by iso2 code.
+- Get a country by iso2 code.
 
 ```typescript
 const countries = Countries.getCountries({ filters: { iso2: 'US' } })
 ```
 
-> How to get a country by iso2 code and localization.
+- Get a country by iso2 code and localization.
 
 ```typescript
 const countries = Countries.getCountries({
@@ -65,7 +89,7 @@ const countries = Countries.getCountries({
 })
 ```
 
-> How to get a country by iso3 code.
+- Get a country by iso3 code.
 
 ```typescript
 const countries = Countries.getCountries({ filters: { iso3: 'ITA' } })
@@ -73,25 +97,25 @@ const countries = Countries.getCountries({ filters: { iso3: 'ITA' } })
 
 ### States
 
-> How to get all states.
+- Get all states.
 
 ```typescript
 const states = States.getStates()
 ```
 
-> How to get all states with localization.
+- Get all states with localization.
 
 ```typescript
 const states = States.getStates({ locale: 'it' })
 ```
 
-> How to get states by country code.
+- Get states by country code.
 
 ```typescript
 const states = States.getStates({ filters: { country_code: 'IT' } })
 ```
 
-> How to get states by country code and localization _(available only for italian states for now)_.
+- Get states by country code and localization _(available only for italian states for now)_.
 
 ```typescript
 const states = States.getStates({
@@ -100,7 +124,7 @@ const states = States.getStates({
 })
 ```
 
-> How to get regions by country code _(available only for italian states for now)_.
+- Get regions by country code _(available only for italian states for now)_.
 
 ```typescript
 const states = States.getStates({
@@ -111,7 +135,7 @@ const states = States.getStates({
 })
 ```
 
-> How to get a state by country code and state code.
+- Get a state by country code and state code.
 
 ```typescript
 const states = States.getStates({
@@ -124,13 +148,13 @@ const states = States.getStates({
 
 ### Cities
 
-> How to get all cities.
+- Get all cities.
 
 ```typescript
 const cities = Cities.getCities()
 ```
 
-> How to get italian cities.
+- Get italian cities.
 
 ```typescript
 const cities = Cities.getCities({
@@ -140,7 +164,7 @@ const cities = Cities.getCities({
 })
 ```
 
-> How to get italian ligurian cities.
+- Get italian ligurian cities.
 
 ```typescript
 const cities = Cities.getCities({
@@ -153,9 +177,9 @@ const cities = Cities.getCities({
 
 ## Contributors
 
-Any contribution is really appreciated.
+Any contribution is really appreciated. You can get started with the steps below:
 
-1. Fork [this repository](https://github.com/commercelayer/sanity-template-commercelayer) (learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
+1. Fork [this repository](https://github.com/Randagio13/countries-states-cities-service) (learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
 
 2. Clone the forked repository.
 
@@ -174,3 +198,5 @@ This repository is licensed under the [MIT](LICENSE) License.
 ## Sponsor
 
 Don't be shy! 😜
+
+[:heart: Sponsor](https://github.com/sponsors/Randagio13) or [:dollar: Donate on Patreon](https://www.patreon.com/randagio13)
