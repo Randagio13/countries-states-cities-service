@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0...v1.0.1) (2021-09-25)
+
+
+### Bug Fixes
+
+* Add keywords, description, and repo ([ce8cea8](https://github.com/Randagio13/countries-states-cities-service/commit/ce8cea83aa38c18d7f4228f429a26392931e00d0))
+
 # 1.0.0 (2021-09-24)
 
 
