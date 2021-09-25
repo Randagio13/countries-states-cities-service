@@ -54,7 +54,7 @@ import { Countries, States, Cities } from 'countries-states-cities-service'
 
 ## Usage
 
-The code snippet below show how to put into action `countries-states-cities-service` in some common use cases.
+The code snippet below shows how to put into action `countries-states-cities-service` in some common use cases.
 
 - [Countries](#countries)
 - [States](#states)
@@ -115,7 +115,7 @@ const states = States.getStates({ locale: 'it' })
 const states = States.getStates({ filters: { country_code: 'IT' } })
 ```
 
-- Get states by country code and localization _(available only for italian states for now)_.
+- Get states by country code and localization _(available only for Italian states for now)_.
 
 ```typescript
 const states = States.getStates({
@@ -124,7 +124,7 @@ const states = States.getStates({
 })
 ```
 
-- Get regions by country code _(available only for italian states for now)_.
+- Get regions by country code _(available only for Italian states for now)_.
 
 ```typescript
 const states = States.getStates({
@@ -154,7 +154,7 @@ const states = States.getStates({
 const cities = Cities.getCities()
 ```
 
-- Get italian cities.
+- Get Italian cities.
 
 ```typescript
 const cities = Cities.getCities({
@@ -164,7 +164,7 @@ const cities = Cities.getCities({
 })
 ```
 
-- Get italian ligurian cities.
+- Get Italian Ligurian cities.
 
 ```typescript
 const cities = Cities.getCities({
@@ -177,7 +177,7 @@ const cities = Cities.getCities({
 
 ## Contributors
 
-Any contribution is really appreciated. You can get started with the steps below:
+Any contribution is appreciated. You can get started with the steps below:
 
 1. Fork [this repository](https://github.com/Randagio13/countries-states-cities-service) (learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
 
