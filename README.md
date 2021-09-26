@@ -18,10 +18,10 @@
    - [Countries](#countries)
    - [States](#states)
    - [Cities](#cities)
-5. [Contributors](#contributors)
-6. [Need help](#need-help)
-7. [Licence](#license)
-8. [Sponsor](#sponsor)
+4. [Contributors](#contributors)
+5. [Need help](#need-help)
+6. [Licence](#license)
+7. [Sponsor](#sponsor)
 
 ## Mission
 
@@ -199,4 +199,4 @@ This repository is licensed under the [MIT](LICENSE) License.
 
 Don't be shy! 😜
 
-[:heart: Sponsor](https://github.com/sponsors/Randagio13) or [:dollar: Donate on Patreon](https://www.patreon.com/randagio13)
+[:heart: Sponsor](https://github.com/sponsors/Randagio13)
