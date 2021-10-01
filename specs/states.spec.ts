@@ -80,4 +80,53 @@ describe('States.getStates', () => {
     expect(c[0].name).toBe('Provincia di Genova')
     expect(c).toHaveLength(1)
   })
+  it('Get one italian provinces sort by asc', () => {
+    const c = States.getStates({
+      filters: {
+        country_code: 'IT',
+        is_region: false,
+      },
+      locale: 'it',
+      sort: {
+        mode: 'asc',
+      },
+    })
+    expect(c).toBeDefined()
+    expect(c[0]).toHaveProperty('name')
+    expect(c[0].name).toBe('Provincia di Benevento')
+    expect(c).toHaveLength(109)
+  })
+  it('Get one italian provinces sort by desc', () => {
+    const c = States.getStates({
+      filters: {
+        country_code: 'IT',
+        is_region: false,
+      },
+      locale: 'it',
+      sort: {
+        mode: 'desc',
+      },
+    })
+    expect(c).toBeDefined()
+    expect(c[0]).toHaveProperty('name')
+    expect(c[0].name).toBe('Provincia di Trento')
+    expect(c).toHaveLength(109)
+  })
+  it('Get one italian provinces sort by alphabetic state_code', () => {
+    const c = States.getStates({
+      filters: {
+        country_code: 'IT',
+        is_region: false,
+      },
+      locale: 'it',
+      sort: {
+        mode: 'alphabetical',
+        key: 'state_code',
+      },
+    })
+    expect(c).toBeDefined()
+    expect(c[0]).toHaveProperty('name')
+    expect(c[0].name).toBe('Provincia di Agrigento')
+    expect(c).toHaveLength(109)
+  })
 })

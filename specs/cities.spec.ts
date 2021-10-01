@@ -31,4 +31,47 @@ describe('Cities.getCities', () => {
     expect(c[0].name).toBe('Abbateggio')
     expect(c).toHaveLength(9948)
   })
+  it('Get italians cities and sort by asc', () => {
+    const c = Cities.getCities({
+      filters: {
+        country_code: 'IT',
+      },
+      sort: {
+        mode: 'asc',
+      },
+    })
+    expect(c).toBeDefined()
+    expect(c[0]).toHaveProperty('name')
+    expect(c[0].name).toBe('Abbateggio')
+    expect(c).toHaveLength(9948)
+  })
+  it('Get italians cities and sort by desc', () => {
+    const c = Cities.getCities({
+      filters: {
+        country_code: 'IT',
+      },
+      sort: {
+        mode: 'desc',
+      },
+    })
+    expect(c).toBeDefined()
+    expect(c[0]).toHaveProperty('name')
+    expect(c[0].name).toBe('Zugliano')
+    expect(c).toHaveLength(9948)
+  })
+  it('Get italians cities and sort by alphabetic name', () => {
+    const c = Cities.getCities({
+      filters: {
+        country_code: 'IT',
+      },
+      sort: {
+        mode: 'alphabetical',
+        key: 'name',
+      },
+    })
+    expect(c).toBeDefined()
+    expect(c[0]).toHaveProperty('name')
+    expect(c[0].name).toBe('Abano Terme')
+    expect(c).toHaveLength(9948)
+  })
 })

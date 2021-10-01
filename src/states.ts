@@ -1,9 +1,9 @@
 import states from '#data/states.json'
 import { Translations } from './countries'
-import { dataFiltered } from './utils'
+import { dataFiltered, sorter } from './utils'
 import { States } from '.'
 
-type States = {
+export interface State {
   state_code: string
   id: number
   longitude: string
@@ -13,7 +13,9 @@ type States = {
   country_id: number
   translations?: Record<Translations, string>
   name: string
-}[]
+}
+
+type States = State[]
 
 type Args = {
   filters?:
@@ -28,6 +30,19 @@ type Args = {
         is_region?: boolean
       }
   locale?: Translations
+  sort?:
+    | {
+        mode: 'asc'
+        key?: never
+      }
+    | {
+        mode: 'desc'
+        key?: never
+      }
+    | {
+        mode: 'alphabetical'
+        key: 'name' | 'state_code'
+      }
 }
 
 export function getStates(args?: Args): States {
@@ -45,6 +60,9 @@ export function getStates(args?: Args): States {
       if (name) newItem.name = name
       return newItem
     })
+  }
+  if (args?.sort !== undefined) {
+    data = sorter(data, args?.sort)
   }
   return data
 }
