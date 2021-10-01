@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.1...v1.1.0) (2021-10-01)
+
+
+### Features
+
+* Add new sort configuration ([e983597](https://github.com/Randagio13/countries-states-cities-service/commit/e9835976e8bb73265383cf1d443b51272ed570f4))
+
 ## [1.0.1](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.0...v1.0.1) (2021-09-25)
 
 
