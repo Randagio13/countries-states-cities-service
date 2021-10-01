@@ -1,5 +1,5 @@
 import countries from '#data/countries.json'
-import { dataFiltered } from './utils'
+import { dataFiltered, sorter } from './utils'
 
 export type Translations =
   | 'kr'
@@ -15,7 +15,7 @@ export type Translations =
   | 'it'
   | 'cn'
 
-type Countries = {
+export interface Country {
   id: number
   name: string
   iso3: string
@@ -41,7 +41,9 @@ type Countries = {
   longitude: string
   emoji: string
   emojiU: string
-}[]
+}
+
+type Countries = Country[]
 
 type Args = {
   filters?:
@@ -54,6 +56,19 @@ type Args = {
         iso3: string
       }
   locale?: Translations
+  sort?:
+    | {
+        mode: 'asc'
+        key?: never
+      }
+    | {
+        mode: 'desc'
+        key?: never
+      }
+    | {
+        mode: 'alphabetical'
+        key: 'name' | 'iso2' | 'iso3'
+      }
 }
 
 export function getCountries(args?: Args): Countries {
@@ -70,6 +85,9 @@ export function getCountries(args?: Args): Countries {
       if (name) newItem.name = name
       return newItem
     })
+  }
+  if (args?.sort !== undefined) {
+    data = sorter(data, args?.sort)
   }
   return data
 }

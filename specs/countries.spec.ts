@@ -49,4 +49,38 @@ describe('Countries', () => {
     expect(c[0].name).toBe('Italy')
     expect(c).toHaveLength(1)
   })
+  it('Sort by asc', () => {
+    const c = Countries.getCountries({
+      sort: {
+        mode: 'asc',
+      },
+    })
+    expect(c).toBeDefined()
+    expect(c[0]).toHaveProperty('name')
+    expect(c[0].name).toBe('Afghanistan')
+    expect(c).toHaveLength(250)
+  })
+  it('Sort by desc', () => {
+    const c = Countries.getCountries({
+      sort: {
+        mode: 'desc',
+      },
+    })
+    expect(c).toBeDefined()
+    expect(c[0]).toHaveProperty('name')
+    expect(c[0].name).toBe('Zimbabwe')
+    expect(c).toHaveLength(250)
+  })
+  it('Sort by alphabetic iso2', () => {
+    const c = Countries.getCountries({
+      sort: {
+        mode: 'alphabetical',
+        key: 'iso2',
+      },
+    })
+    expect(c).toBeDefined()
+    expect(c[0]).toHaveProperty('name')
+    expect(c[0].name).toBe('Andorra')
+    expect(c).toHaveLength(250)
+  })
 })

@@ -1,3 +1,5 @@
 export { default as Countries } from './countries'
 export { default as States } from './states'
 export { default as Cities } from './cities'
+export type { Country } from './countries'
+export type SortType = 'alphabetical' | 'asc' | 'desc'
