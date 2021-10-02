@@ -68,6 +68,37 @@ The code snippet below shows how to put into action `countries-states-cities-ser
 const countries = Countries.getCountries()
 ```
 
+- Get all countries by `asc` sort.
+
+```typescript
+const countries = Countries.getCountries({
+  sort: {
+    mode: 'asc',
+  },
+})
+```
+
+- Get all countries by `desc` sort.
+
+```typescript
+const countries = Countries.getCountries({
+  sort: {
+    mode: 'desc',
+  },
+})
+```
+
+- Get all countries by alphabetical sort.
+
+```typescript
+const countries = Countries.getCountries({
+  sort: {
+    mode: 'alphabetical',
+    key: 'iso2',
+  },
+})
+```
+
 - Get all countries with localization.
 
 ```typescript
@@ -101,6 +132,37 @@ const countries = Countries.getCountries({ filters: { iso3: 'ITA' } })
 
 ```typescript
 const states = States.getStates()
+```
+
+- Get all states by `asc` sort.
+
+```typescript
+const states = States.getStates({
+  sort: {
+    mode: 'asc',
+  },
+})
+```
+
+- Get all states by `desc` sort.
+
+```typescript
+const states = States.getStates({
+  sort: {
+    mode: 'desc',
+  },
+})
+```
+
+- Get all states by `alphabetical` sort.
+
+```typescript
+const states = States.getStates({
+  sort: {
+    mode: 'alphabetical',
+    key: 'name',
+  },
+})
 ```
 
 - Get all states with localization.
@@ -152,6 +214,37 @@ const states = States.getStates({
 
 ```typescript
 const cities = Cities.getCities()
+```
+
+- Get all cities by `asc` sort.
+
+```typescript
+const cities = Cities.getCities({
+  sort: {
+    mode: 'asc',
+  },
+})
+```
+
+- Get all cities by `desc` sort.
+
+```typescript
+const cities = Cities.getCities({
+  sort: {
+    mode: 'desc',
+  },
+})
+```
+
+- Get all cities by `alphabetical` sort.
+
+```typescript
+const cities = Cities.getCities({
+  sort: {
+    mode: 'alphabetical',
+    key: 'name',
+  },
+})
 ```
 
 - Get Italian cities.
