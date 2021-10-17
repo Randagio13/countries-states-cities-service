@@ -23,7 +23,8 @@
   },
   "scripts": {
     "start": "tsc --watch",
-    "build": "tsc --build --pretty --verbose && npx tsc-alias",
+    "build": "tsc --build --pretty --verbose && npx tsc-alias && npm run minify-json",
+    "minify-json": "minify-json ./lib/data",
     "test": "jest",
     "prepare": "npm run build",
     "size": "size-limit",
@@ -92,6 +93,7 @@
     "@types/jest": "^27.0.2",
     "husky": "^7.0.2",
     "jest": "^27.2.4",
+    "minify-json": "^1.0.0",
     "semantic-release": "^18.0.0",
     "size-limit": "^5.0.5",
     "tslib": "^2.3.1",
