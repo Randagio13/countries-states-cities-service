@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.1.0...v1.2.0) (2021-10-17)
+
+
+### Features
+
+* Compress json and build by es6 module ([b096ef2](https://github.com/Randagio13/countries-states-cities-service/commit/b096ef2f8a49424e520c6b2d8ddd2a394166132c))
+
 # [1.1.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.0.1...v1.1.0) (2021-10-01)
 
 
