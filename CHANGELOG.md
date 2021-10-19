@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/Randagio13/countries-states-cities-service/compare/v1.2.0...v1.2.1) (2021-10-19)
+
+
+### Bug Fixes
+
+* Set export module as CommonJS ([08ff28b](https://github.com/Randagio13/countries-states-cities-service/commit/08ff28b9a30a828ef3b6a99748ce5e578ca9ea01))
+
 # [1.2.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.1.0...v1.2.0) (2021-10-17)
 
 
