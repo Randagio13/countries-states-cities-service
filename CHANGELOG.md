@@ -1,3 +1,10 @@
+# [1.3.0-alpha.1](https://github.com/Randagio13/countries-states-cities-service/compare/v1.2.1...v1.3.0-alpha.1) (2021-10-26)
+
+
+### Features
+
+* Add ESM and CJS build ([9fd5390](https://github.com/Randagio13/countries-states-cities-service/commit/9fd5390302c5637da7625e8586479660bba02ab2))
+
 ## [1.2.1](https://github.com/Randagio13/countries-states-cities-service/compare/v1.2.0...v1.2.1) (2021-10-19)
 
 
