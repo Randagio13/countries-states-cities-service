@@ -1,4 +1,4 @@
-import { Cities } from '../lib'
+import { Cities } from '../lib/esm'
 
 describe('Cities.getCities', () => {
   it('Get all countries', () => {

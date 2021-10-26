@@ -5,8 +5,9 @@
   "description": "Get the World's countries, states, regions and cities",
   "repository": "https://github.com/Randagio13/countries-states-cities-service.git",
   "license": "MIT",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "lib/cjs/index.js",
+  "typings": "lib/cjs/index.d.ts",
+  "module": "lib/esm/index.js",
   "keywords": [
     "world",
     "countries",
@@ -23,7 +24,7 @@
   },
   "scripts": {
     "start": "tsc --watch",
-    "build": "tsc --build --pretty --verbose && npx tsc-alias && npm run minify-json",
+    "build": "tsc --build --pretty --verbose && tsc --pretty --project tsconfig.cjs.json && npx tsc-alias && cp -R data lib && npm run minify-json",
     "minify-json": "minify-json ./lib/data",
     "test": "jest",
     "prepare": "npm run build",
@@ -72,11 +73,10 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "module": "lib/index.js",
   "size-limit": [
     {
       "path": "lib",
-      "limit": "35 MB",
+      "limit": "5 MB",
       "webpack": false
     }
   ],

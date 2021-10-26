@@ -1,4 +1,4 @@
-import { States } from '../lib'
+import { States } from '../lib/esm'
 
 describe('States.getStates', () => {
   it('Get all countries', () => {

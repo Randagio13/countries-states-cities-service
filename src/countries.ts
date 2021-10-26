@@ -1,4 +1,5 @@
-import countries from '#data/countries.json'
+// @ts-ignore
+import countries from '../data/countries.json'
 import { dataFiltered, sorter } from './utils'
 
 export type Translations =
