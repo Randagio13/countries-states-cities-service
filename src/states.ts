@@ -1,4 +1,5 @@
-import states from '#data/states.json'
+// @ts-ignore
+import states from '../data/states.json'
 import { Translations } from './countries'
 import { dataFiltered, sorter } from './utils'
 import { States } from '.'

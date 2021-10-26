@@ -1,4 +1,5 @@
-import cities from '#data/cities.json'
+// @ts-ignore
+import cities from '../data/cities.json'
 import { dataFiltered, sorter } from './utils'
 
 export interface City {

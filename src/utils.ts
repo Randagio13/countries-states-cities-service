@@ -1,4 +1,4 @@
-import { SortType } from 'index'
+import { SortType } from './index'
 
 export function dataFiltered<D, F extends keyof D>(
   data: D[],
