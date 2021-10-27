@@ -23,8 +23,9 @@
     "node": ">=10"
   },
   "scripts": {
+    "alias": "npx tsc-alias",
     "start": "tsc --watch",
-    "build": "tsc -b tsconfig.json tsconfig.cjs.json --verbose --force && npx tsc-alias && cp -R data lib && npm run minify-json",
+    "build": "tsc -b tsconfig.json tsconfig.cjs.json --verbose --force && cp -R data lib && npm run minify-json",
     "minify-json": "minify-json ./lib/data",
     "test": "jest",
     "coverage": "jest --coverage",
