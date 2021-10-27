@@ -27,6 +27,7 @@
     "build": "tsc -b tsconfig.json tsconfig.cjs.json --verbose --force && npx tsc-alias && cp -R data lib && npm run minify-json",
     "minify-json": "minify-json ./lib/data",
     "test": "jest",
+    "coverage": "jest --coverage",
     "prepare": "npm run build",
     "size": "size-limit",
     "analyze": "size-limit --why",
