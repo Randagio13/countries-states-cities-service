@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "tsc --watch",
-    "build": "tsc --build --pretty --verbose && tsc --pretty --project tsconfig.cjs.json && npx tsc-alias && cp -R data lib && npm run minify-json",
+    "build": "tsc -b tsconfig.json tsconfig.cjs.json --verbose --force && npx tsc-alias && cp -R data lib && npm run minify-json",
     "minify-json": "minify-json ./lib/data",
     "test": "jest",
     "prepare": "npm run build",
