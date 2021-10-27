@@ -4,7 +4,7 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Projects */
-    "incremental": true /* Enable incremental compilation */,
+    "incremental": false /* Enable incremental compilation */,
     // "composite": true,                                /* Enable constraints that allow a TypeScript project to be used with project references. */
     // "tsBuildInfoFile": "./",                          /* Specify the folder for .tsbuildinfo incremental compilation files. */
     // "disableSourceOfProjectReferenceRedirect": true,  /* Disable preferring source files instead of declaration files when referencing composite projects */
@@ -26,7 +26,7 @@
 
     /* Modules */
     "module": "CommonJS" /* Specify what module code is generated. */,
-    // "rootDir": "./src" /* Specify the root folder within your source files. */,
+    // "rootDir": "src" /* Specify the root folder within your source files. */,
     "moduleResolution": "Node" /* Specify how TypeScript looks up a file from a given module specifier. */,
     "baseUrl": "src" /* Specify the base directory to resolve non-relative module names. */,
     "paths": {
