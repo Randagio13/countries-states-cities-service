@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.2.1...v1.3.0) (2021-10-27)
+
+
+### Bug Fixes
+
+* Rewrite build command ([30944e7](https://github.com/Randagio13/countries-states-cities-service/commit/30944e712f9b4746882339e6512a12edfc161730))
+
+
+### Features
+
+* Add coverage to specs ([f1d01bf](https://github.com/Randagio13/countries-states-cities-service/commit/f1d01bf921bba96fe9094b2892b47b138f9b1fa5))
+* Add ESM and CJS build ([2bac9e7](https://github.com/Randagio13/countries-states-cities-service/commit/2bac9e7994c508d74c2bde2a1dda35fb97be5af6))
+* Generate builds by tsc ([ace281c](https://github.com/Randagio13/countries-states-cities-service/commit/ace281c2d24f950e2f2a3c0830ce28dee56f4e93))
+
 # [1.3.0-alpha.2](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.0-alpha.1...v1.3.0-alpha.2) (2021-10-27)
 
 
