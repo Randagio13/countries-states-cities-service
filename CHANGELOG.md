@@ -1,3 +1,10 @@
+# [1.3.0-alpha.2](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.0-alpha.1...v1.3.0-alpha.2) (2021-10-27)
+
+
+### Bug Fixes
+
+* Rewrite build command ([4a098bf](https://github.com/Randagio13/countries-states-cities-service/commit/4a098bf88f5e2273616d173a077251c701d0b35d))
+
 # [1.3.0-alpha.1](https://github.com/Randagio13/countries-states-cities-service/compare/v1.2.1...v1.3.0-alpha.1) (2021-10-26)
 
 
