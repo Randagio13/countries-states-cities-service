@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.0...v1.3.1) (2021-12-12)
+
+
+### Bug Fixes
+
+* Make code enhanchements ([76f5041](https://github.com/Randagio13/countries-states-cities-service/commit/76f504165f0348adf8878dc6ceeb0a13bbaa162d))
+
 # [1.3.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.2.1...v1.3.0) (2021-10-27)
 
 
