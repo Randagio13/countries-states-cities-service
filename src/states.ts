@@ -47,7 +47,7 @@ type Args = {
 }
 
 export function getStates(args?: Args): States {
-  let data = [...(states as States)]
+  let data = states as States
   if (args?.filters !== undefined) {
     const { filters } = args
     data = dataFiltered(data, filters as any)

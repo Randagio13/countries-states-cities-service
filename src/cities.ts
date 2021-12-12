@@ -41,7 +41,7 @@ type Args = {
 }
 
 export function getCities(args?: Args): Cities {
-  let data = [...(cities as Cities)]
+  let data = cities as Cities
   if (args?.filters !== undefined) {
     const { filters } = args
     data = dataFiltered(data, filters as any)

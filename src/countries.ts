@@ -73,7 +73,7 @@ type Args = {
 }
 
 export function getCountries(args?: Args): Countries {
-  let data = [...(countries as Countries)]
+  let data = countries as Countries
   if (args?.filters !== undefined) {
     const { filters } = args
     data = dataFiltered(data, filters as any)

@@ -4,10 +4,13 @@ export function dataFiltered<D, F extends keyof D>(
   data: D[],
   filters: Record<F, any>
 ): D[] {
+  let dataFiltered = data
   for (const filter of Object.keys(filters)) {
-    data = data.filter((item) => filters[filter as F] === item[filter as F])
+    dataFiltered = dataFiltered.filter(
+      (item) => filters[filter as F] === item[filter as F]
+    )
   }
-  return data
+  return dataFiltered
 }
 
 type O = {
