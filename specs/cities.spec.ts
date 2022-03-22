@@ -1,11 +1,11 @@
-import { Cities } from '../lib/esm'
+import { Cities } from '../src'
 
 describe('Cities.getCities', () => {
   it('Get all countries', () => {
     const c = Cities.getCities()
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Ashkāsham')
+    expect(c[0]?.name).toBe('Ashkāsham')
     expect(c.length).toBeGreaterThan(10)
   })
   it('Get ligurian cities by filters', () => {
@@ -17,7 +17,7 @@ describe('Cities.getCities', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Airole')
+    expect(c[0]?.name).toBe('Airole')
     expect(c).toHaveLength(277)
   })
   it('Get italians cities', () => {
@@ -28,7 +28,7 @@ describe('Cities.getCities', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Abbateggio')
+    expect(c[0]?.name).toBe('Abbateggio')
     expect(c).toHaveLength(9948)
   })
   it('Get italians cities and sort by asc', () => {
@@ -42,7 +42,7 @@ describe('Cities.getCities', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Abbateggio')
+    expect(c[0]?.name).toBe('Abbateggio')
     expect(c).toHaveLength(9948)
   })
   it('Get italians cities and sort by desc', () => {
@@ -56,7 +56,7 @@ describe('Cities.getCities', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Zugliano')
+    expect(c[0]?.name).toBe('Zugliano')
     expect(c).toHaveLength(9948)
   })
   it('Get italians cities and sort by alphabetic name', () => {
@@ -71,7 +71,7 @@ describe('Cities.getCities', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Abano Terme')
+    expect(c[0]?.name).toBe('Abano Terme')
     expect(c).toHaveLength(9948)
   })
 })

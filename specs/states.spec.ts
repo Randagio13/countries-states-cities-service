@@ -1,11 +1,11 @@
-import { States } from '../lib/esm'
+import { States } from '../src'
 
 describe('States.getStates', () => {
   it('Get all countries', () => {
     const c = States.getStates()
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Badakhshan')
+    expect(c[0]?.name).toBe('Badakhshan')
     expect(c.length).toBeGreaterThan(10)
   })
   it('Get all countries with localization', () => {
@@ -14,7 +14,7 @@ describe('States.getStates', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Badakhshan')
+    expect(c[0]?.name).toBe('Badakhshan')
     expect(c.length).toBeGreaterThan(10)
   })
   it('Get states by country_code', () => {
@@ -25,7 +25,7 @@ describe('States.getStates', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Abruzzo')
+    expect(c[0]?.name).toBe('Abruzzo')
     expect(c).toHaveLength(129)
   })
   it('Get italians regions and locale', () => {
@@ -38,7 +38,7 @@ describe('States.getStates', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Abruzzo')
+    expect(c[0]?.name).toBe('Abruzzo')
     expect(c).toHaveLength(20)
   })
   it('Get italians provinces and locale', () => {
@@ -50,7 +50,7 @@ describe('States.getStates', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Province of Benevento')
+    expect(c[0]?.name).toBe('Province of Benevento')
     expect(c).toHaveLength(109)
   })
   it('Get italians provinces and locale', () => {
@@ -63,7 +63,7 @@ describe('States.getStates', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Provincia di Benevento')
+    expect(c[0]?.name).toBe('Provincia di Benevento')
     expect(c).toHaveLength(109)
   })
   it('Get one italian province and locale', () => {
@@ -77,7 +77,7 @@ describe('States.getStates', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Provincia di Genova')
+    expect(c[0]?.name).toBe('Provincia di Genova')
     expect(c).toHaveLength(1)
   })
   it('Get one italian provinces sort by asc', () => {
@@ -93,7 +93,7 @@ describe('States.getStates', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Provincia di Benevento')
+    expect(c[0]?.name).toBe('Provincia di Benevento')
     expect(c).toHaveLength(109)
   })
   it('Get one italian provinces sort by desc', () => {
@@ -109,7 +109,7 @@ describe('States.getStates', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Provincia di Trento')
+    expect(c[0]?.name).toBe('Provincia di Trento')
     expect(c).toHaveLength(109)
   })
   it('Get one italian provinces sort by alphabetic state_code', () => {
@@ -126,7 +126,7 @@ describe('States.getStates', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Provincia di Agrigento')
+    expect(c[0]?.name).toBe('Provincia di Agrigento')
     expect(c).toHaveLength(109)
   })
 })

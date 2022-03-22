@@ -1,18 +1,18 @@
-import { Countries } from '../lib/esm'
+import { Countries } from '../src'
 
 describe('Countries', () => {
   it('Get all countries', () => {
     const c = Countries.getCountries()
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Afghanistan')
+    expect(c[0]?.name).toBe('Afghanistan')
     expect(c.length).toBeGreaterThan(10)
   })
   it('Get all countries with localization', () => {
     const c = Countries.getCountries({ locale: 'es' })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Afganistán')
+    expect(c[0]?.name).toBe('Afganistán')
     expect(c.length).toBeGreaterThan(10)
   })
   it('Get a country by iso2', () => {
@@ -23,7 +23,7 @@ describe('Countries', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Italy')
+    expect(c[0]?.name).toBe('Italy')
     expect(c).toHaveLength(1)
   })
   it('Get a country by filter and locale', () => {
@@ -35,7 +35,7 @@ describe('Countries', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Italien')
+    expect(c[0]?.name).toBe('Italien')
     expect(c).toHaveLength(1)
   })
   it('Get a country by iso3', () => {
@@ -46,7 +46,7 @@ describe('Countries', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Italy')
+    expect(c[0]?.name).toBe('Italy')
     expect(c).toHaveLength(1)
   })
   it('Sort by asc', () => {
@@ -57,7 +57,7 @@ describe('Countries', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Afghanistan')
+    expect(c[0]?.name).toBe('Afghanistan')
     expect(c).toHaveLength(250)
   })
   it('Sort by desc', () => {
@@ -68,7 +68,7 @@ describe('Countries', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Zimbabwe')
+    expect(c[0]?.name).toBe('Zimbabwe')
     expect(c).toHaveLength(250)
   })
   it('Sort by alphabetic iso2', () => {
@@ -80,7 +80,7 @@ describe('Countries', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0].name).toBe('Andorra')
+    expect(c[0]?.name).toBe('Andorra')
     expect(c).toHaveLength(250)
   })
 })
