@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.1...v1.3.2) (2022-03-23)
+
+
+### Performance Improvements
+
+* Split code in packages ([2593e56](https://github.com/Randagio13/countries-states-cities-service/commit/2593e56af56dad3235aec67dee1440f6014ae7fe))
+
 ## [1.3.1](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.0...v1.3.1) (2021-12-12)
 
 
