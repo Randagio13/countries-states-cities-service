@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.2...v1.3.3) (2022-09-17)
+
+
+### Bug Fixes
+
+* Add exports to package.json ([6469973](https://github.com/Randagio13/countries-states-cities-service/commit/64699734e73ca2c6b33ef625d2f0396a1fb7dd75))
+
 ## [1.3.2](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.1...v1.3.2) (2022-03-23)
 
 
