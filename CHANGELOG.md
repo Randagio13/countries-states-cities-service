@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.3...v1.3.4) (2023-01-03)
+
+
+### Bug Fixes
+
+* Ensure generated index.js is in lib ([27bcc72](https://github.com/Randagio13/countries-states-cities-service/commit/27bcc727f7294285db8db86d5d3cebf9d47b83fd))
+
 ## [1.3.3](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.2...v1.3.3) (2022-09-17)
 
 
