@@ -1,295 +1,251 @@
 <div align="center">
-  
-# Countries States Cities Service
 
-[![NPM](https://nodei.co/npm/countries-states-cities-service.png?compact=true)](https://nodei.co/npm/countries-states-cities-service/)
+# 🌍 countries-states-cities-service
+
+**The world's geographic data. Zero dependencies. Tree-shakable. TypeScript-first.**
+
+[![npm](https://img.shields.io/npm/v/countries-states-cities-service?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/countries-states-cities-service)
+[![downloads](https://img.shields.io/npm/dm/countries-states-cities-service?style=flat-square&color=46bc99)](https://www.npmjs.com/package/countries-states-cities-service)
+[![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen?style=flat-square)](https://github.com/Randagio13/countries-states-cities-service)
+[![license](https://img.shields.io/npm/l/countries-states-cities-service?style=flat-square)](LICENSE)
+[![bundle size](https://img.shields.io/badge/cities%20bundle-6.5%20MB-blue?style=flat-square)](https://bundlephobia.com/package/countries-states-cities-service)
+
 <br />
-[![](https://img.shields.io/npm/dt/countries-states-cities-service.svg?style=flat-square)](https://www.npmjs.com/package/countries-states-cities-service)
+
+<a href="https://github.com/sponsors/Randagio13">
+  <img src="https://img.shields.io/badge/Sponsor%20this%20project-%E2%9D%A4-db61a2?style=for-the-badge&logo=github" alt="Sponsor" />
+</a>
 
 </div>
 
-## Table of contents
+---
 
-1. [Mission](#mission)
-2. [Getting started](#getting-started)
-   - [Installation](#installation)
-   - [Import](#import)
-3. [Usage](#usage)
-   - [Countries](#countries)
-   - [States](#states)
-   - [Cities](#cities)
-4. [Contributors](#contributors)
-5. [Need help](#need-help)
-6. [Licence](#license)
-7. [Sponsor](#sponsor)
+## Why this package?
 
-## Mission
+Every address form, user profile, and logistics app needs countries, states, and cities. Most solutions make you choose between incomplete data, bloated bundles, or heavy server-side calls.
 
-- I've never found any complete library to get all world countries, states, and cities. I want to develop the best one. Of course, contributors are welcome!!
-- I took this [data](https://github.com/dr5hn/countries-states-cities-database) as a starting point.
+**This package gives you all three — fully offline, in one install:**
 
-## Getting started
+| | |
+|---|---|
+| 🌐 **250** countries | with ISO2, ISO3, phone codes, currencies, timezones & translations |
+| 🗺️ **4,868** states & regions | with coordinates and locale support |
+| 🏙️ **147,418** cities | filtered, sorted, and ready in milliseconds |
+| 📦 **Zero** runtime dependencies | fully self-contained |
+| 🌲 **Tree-shakable** | import only what you need — countries bundle is just 204 KB |
+| 🔷 **TypeScript-first** | full type definitions included |
+| ⚡ **CJS + ESM** | works everywhere: Node.js, React, Vue, React Native, Next.js |
+| ✅ **100% test coverage** | no surprises in production |
 
-To get started with this library, you need to install it and add it to your project.
+---
 
-### Installation
-
-Countries States Cities Service is available as an npm package.
+## Installation
 
 ```bash
-# npm
 npm install countries-states-cities-service
-
-# yarn
+# or
+pnpm add countries-states-cities-service
+# or
 yarn add countries-states-cities-service
 ```
 
-### Import
+---
 
-Import single named import as follow:
+## Import — only pay for what you use
+
+The package ships with **subpath exports** so bundlers and mobile frameworks (Metro, webpack, Vite) only include the data you actually import.
 
 ```typescript
+// Full package — all data
 import { Countries, States, Cities } from 'countries-states-cities-service'
+
+// Per-service — only loads what you need
+import { Countries } from 'countries-states-cities-service/countries' // ~204 KB
+import { States }    from 'countries-states-cities-service/states'    // ~584 KB
+import { Cities }    from 'countries-states-cities-service/cities'    // ~6.5 MB
 ```
+
+> On React Native? Use the subpath imports. Your users will thank you.
+
+---
 
 ## Usage
 
-The code snippet below shows how to put into action `countries-states-cities-service` in some common use cases.
-
-- [Countries](#countries)
-- [States](#states)
-- [Cities](#cities)
-
 ### Countries
 
-- Get all countries.
-
 ```typescript
+import { Countries } from 'countries-states-cities-service'
+
+// All countries
 const countries = Countries.getCountries()
+
+// Filter by ISO2 or ISO3
+const italy = Countries.getCountries({ filters: { iso2: 'IT' } })
+const usa   = Countries.getCountries({ filters: { iso3: 'USA' } })
+
+// Multiple countries at once
+const eu = Countries.getCountries({ filters: { iso2: ['IT', 'FR', 'DE', 'ES'] } })
+
+// Localized names
+const countries_it = Countries.getCountries({ locale: 'it' })
+
+// Localized + filtered
+const italy_it = Countries.getCountries({ filters: { iso2: 'IT' }, locale: 'it' })
+
+// Sorted
+const sorted = Countries.getCountries({ sort: { mode: 'alphabetical', key: 'name' } })
 ```
 
-- Get all countries by `asc` sort.
+**Supported locales:** `kr` `br` `pt` `nl` `hr` `fa` `de` `es` `fr` `ja` `it` `cn`
+
+<details>
+<summary>Country object shape</summary>
 
 ```typescript
-const countries = Countries.getCountries({
-  sort: {
-    mode: 'asc',
-  },
-})
+interface Country {
+  id: number
+  name: string
+  iso2: string
+  iso3: string
+  numeric_code: string
+  phone_code: string
+  capital: string
+  currency: string
+  currency_symbol: string
+  tld: string
+  native: string
+  region: string
+  subregion: string
+  latitude: string
+  longitude: string
+  emoji: string
+  emojiU: string
+  timezones: Array<{
+    zoneName: string
+    gmtOffset: number
+    gmtOffsetName: string
+    abbreviation: string
+    tzName: string
+  }>
+  translations: Partial<Record<TranslationLocale, string>>
+}
 ```
 
-- Get all countries by `desc` sort.
+</details>
 
-```typescript
-const countries = Countries.getCountries({
-  sort: {
-    mode: 'desc',
-  },
-})
-```
-
-- Get all countries by alphabetical sort.
-
-```typescript
-const countries = Countries.getCountries({
-  sort: {
-    mode: 'alphabetical',
-    key: 'iso2',
-  },
-})
-```
-
-- Get all countries with localization.
-
-```typescript
-const countries = Countries.getCountries({ locale: 'it' })
-```
-
-- Get a country by iso2 code.
-
-```typescript
-const countries = Countries.getCountries({ filters: { iso2: 'US' } })
-```
-
-- Get a country by iso2 code and localization.
-
-```typescript
-const countries = Countries.getCountries({
-  filters: { iso2: 'IT' },
-  locale: 'it',
-})
-```
-
-- Get a country by iso3 code.
-
-```typescript
-const countries = Countries.getCountries({ filters: { iso3: 'ITA' } })
-```
+---
 
 ### States
 
-- Get all states.
-
 ```typescript
+import { States } from 'countries-states-cities-service'
+
+// All states
 const states = States.getStates()
+
+// States by country
+const it_states = States.getStates({ filters: { country_code: 'IT' } })
+
+// Filter by multiple countries
+const states = States.getStates({ filters: { country_code: ['IT', 'FR'] } })
+
+// Single state by code
+const liguria = States.getStates({ filters: { country_code: 'IT', state_code: 'GE' } })
+
+// Italian regions only
+const regions = States.getStates({ filters: { country_code: 'IT', is_region: true } })
+
+// Localized state names
+const states_it = States.getStates({ filters: { country_code: 'IT' }, locale: 'it' })
+
+// Sorted
+const sorted = States.getStates({ sort: { mode: 'alphabetical', key: 'name' } })
 ```
 
-- Get all states by `asc` sort.
-
-```typescript
-const states = States.getStates({
-  sort: {
-    mode: 'asc',
-  },
-})
-```
-
-- Get all states by `desc` sort.
-
-```typescript
-const states = States.getStates({
-  sort: {
-    mode: 'desc',
-  },
-})
-```
-
-- Get all states by `alphabetical` sort.
-
-```typescript
-const states = States.getStates({
-  sort: {
-    mode: 'alphabetical',
-    key: 'name',
-  },
-})
-```
-
-- Get all states with localization.
-
-```typescript
-const states = States.getStates({ locale: 'it' })
-```
-
-- Get states by country code.
-
-```typescript
-const states = States.getStates({ filters: { country_code: 'IT' } })
-```
-
-- Get states by country code and localization _(available only for Italian states for now)_.
-
-```typescript
-const states = States.getStates({
-  filters: { country_code: 'IT' },
-  locale: 'it',
-})
-```
-
-- Get regions by country code _(available only for Italian states for now)_.
-
-```typescript
-const states = States.getStates({
-  filters: {
-    country_code: 'IT',
-    is_region: true,
-  },
-})
-```
-
-- Get a state by country code and state code.
-
-```typescript
-const states = States.getStates({
-  filters: {
-    country_code: 'IT',
-    state_code: 'GE',
-  },
-})
-```
+---
 
 ### Cities
 
-- Get all cities.
-
 ```typescript
+import { Cities } from 'countries-states-cities-service'
+
+// All cities
 const cities = Cities.getCities()
+
+// Cities by country
+const it_cities = Cities.getCities({ filters: { country_code: 'IT' } })
+
+// Cities by multiple countries
+const cities = Cities.getCities({ filters: { country_code: ['IT', 'FR'] } })
+
+// Cities by country + state
+const ligurian = Cities.getCities({ filters: { country_code: 'IT', state_code: '42' } })
+
+// Sorted
+const sorted = Cities.getCities({ sort: { mode: 'alphabetical', key: 'name' } })
 ```
 
-- Get all cities by `asc` sort.
+---
+
+## Sort modes
+
+All three services support the same sort options:
+
+| Mode | Description |
+|------|-------------|
+| `asc` | Original order (default) |
+| `desc` | Reversed order |
+| `alphabetical` | Locale-aware alphabetical by any key |
 
 ```typescript
-const cities = Cities.getCities({
-  sort: {
-    mode: 'asc',
-  },
-})
+{ sort: { mode: 'alphabetical', key: 'name' } }
+{ sort: { mode: 'asc' } }
+{ sort: { mode: 'desc' } }
 ```
 
-- Get all cities by `desc` sort.
+---
 
-```typescript
-const cities = Cities.getCities({
-  sort: {
-    mode: 'desc',
-  },
-})
-```
+## Data source
 
-- Get all cities by `alphabetical` sort.
+Geographic data is sourced from [dr5hn/countries-states-cities-database](https://github.com/dr5hn/countries-states-cities-database) and bundled at build time — no network calls, no external API, no rate limits.
 
-```typescript
-const cities = Cities.getCities({
-  sort: {
-    mode: 'alphabetical',
-    key: 'name',
-  },
-})
-```
+---
 
-- Get Italian cities.
+## Contributing
 
-```typescript
-const cities = Cities.getCities({
-  filters: {
-    country_code: 'IT',
-  },
-})
-```
+Contributions are always welcome! Here's how:
 
-- Get Italian Ligurian cities.
+1. [Fork the repository](https://github.com/Randagio13/countries-states-cities-service/fork)
+2. Create your branch: `git checkout -b feat/my-improvement`
+3. Make your changes and add tests
+4. Open a pull request — I review quickly
 
-```typescript
-const cities = Cities.getCities({
-  filters: {
-    country_code: 'IT',
-    state_code: '42', // Region iso2
-  },
-})
-```
+---
 
-## Contributors
+## Support & feedback
 
-Any contribution is appreciated. You can get started with the steps below:
+Have a question or found a bug? Ping me on [Twitter / X](https://twitter.com/randagio19) or [open an issue](https://github.com/Randagio13/countries-states-cities-service/issues).
 
-1. Fork [this repository](https://github.com/Randagio13/countries-states-cities-service) (learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
-
-2. Clone the forked repository.
-
-3. Make your changes and create a pull request ([learn how to do this](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)).
-
-4. I will attend to your pull request and provide some feedback.
-
-## Need help?
-
-Ping me [on Twitter](https://twitter.com/randagio19)
+---
 
 ## License
 
-This repository is licensed under the [MIT](LICENSE) License.
+[MIT](LICENSE) © [Alessandro Casazza](https://github.com/Randagio13)
 
-## Sponsor
+---
 
-Don't be shy! 😜
+<div align="center">
 
-[:heart: Sponsor](https://github.com/sponsors/Randagio13)
+## Sponsor this project
+
+This package is free and maintained in my spare time.  
+If it saves you hours of work, consider buying me a coffee ☕
+
+<a href="https://github.com/sponsors/Randagio13">
+  <img src="https://img.shields.io/badge/Become%20a%20Sponsor-%E2%9D%A4-db61a2?style=for-the-badge&logo=github&logoColor=white" alt="Become a Sponsor" />
+</a>
+
+**Every sponsorship — no matter the size — keeps this project alive and growing.**  
+Your name/logo can appear right here. [Let's talk.](https://github.com/sponsors/Randagio13)
+
+</div>
