@@ -12,13 +12,13 @@ describe('Cities.getCities', () => {
     const c = Cities.getCities({
       filters: {
         country_code: 'IT',
-        state_code: '42',
+        state_code: 'IM',
       },
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
     expect(c[0]?.name).toBe('Airole')
-    expect(c).toHaveLength(277)
+    expect(c).toHaveLength(66)
   })
   it('Get italians cities', () => {
     const c = Cities.getCities({
@@ -28,8 +28,8 @@ describe('Cities.getCities', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0]?.name).toBe('Abbateggio')
-    expect(c).toHaveLength(9948)
+    expect(c[0]?.name).toBe('Agrigento')
+    expect(c).toHaveLength(9852)
   })
   it('Get italians cities and sort by asc', () => {
     const c = Cities.getCities({
@@ -42,8 +42,8 @@ describe('Cities.getCities', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0]?.name).toBe('Abbateggio')
-    expect(c).toHaveLength(9948)
+    expect(c[0]?.name).toBe('Agrigento')
+    expect(c).toHaveLength(9852)
   })
   it('Get italians cities and sort by desc', () => {
     const c = Cities.getCities({
@@ -56,8 +56,8 @@ describe('Cities.getCities', () => {
     })
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
-    expect(c[0]?.name).toBe('Zugliano')
-    expect(c).toHaveLength(9948)
+    expect(c[0]?.name).toBe('Zepponami')
+    expect(c).toHaveLength(9852)
   })
   it('Get italians cities and sort by alphabetic name', () => {
     const c = Cities.getCities({
@@ -72,6 +72,6 @@ describe('Cities.getCities', () => {
     expect(c).toBeDefined()
     expect(c[0]).toHaveProperty('name')
     expect(c[0]?.name).toBe('Abano Terme')
-    expect(c).toHaveLength(9948)
+    expect(c).toHaveLength(9852)
   })
 })
