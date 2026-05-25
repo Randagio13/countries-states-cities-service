@@ -1,3 +1,40 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.4.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.4...v1.4.0) (2026-05-25)
+
+
+### Bug Fixes
+
+* **lerna:** remove deprecated useWorkspaces option ([187772f](https://github.com/Randagio13/countries-states-cities-service/commit/187772fb726cfe9e338ccf32f9da6d62d0908f4c))
+
+
+### Features
+
+* modernize toolchain, eliminate dependencies, optimize bundle ([#16](https://github.com/Randagio13/countries-states-cities-service/issues/16)) ([77f4d27](https://github.com/Randagio13/countries-states-cities-service/commit/77f4d2706d34a621f99cdb941c7a84df8240e650))
+
+
+
+
+
+# [1.4.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.4...v1.4.0) (2026-05-25)
+
+
+### Bug Fixes
+
+* **lerna:** remove deprecated useWorkspaces option ([187772f](https://github.com/Randagio13/countries-states-cities-service/commit/187772fb726cfe9e338ccf32f9da6d62d0908f4c))
+
+
+### Features
+
+* modernize toolchain, eliminate dependencies, optimize bundle ([#16](https://github.com/Randagio13/countries-states-cities-service/issues/16)) ([77f4d27](https://github.com/Randagio13/countries-states-cities-service/commit/77f4d2706d34a621f99cdb941c7a84df8240e650))
+
+
+
+
+
 ## [1.3.4](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.3...v1.3.4) (2023-01-03)
 
 
