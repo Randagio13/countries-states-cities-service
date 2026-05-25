@@ -71,6 +71,11 @@ describe('Countries', () => {
     expect(c[0]?.name).toBe('Zimbabwe')
     expect(c).toHaveLength(250)
   })
+  it('Get multiple countries by iso2 array', () => {
+    const c = Countries.getCountries({ filters: { iso2: ['IT', 'FR'] } })
+    expect(c).toHaveLength(2)
+    expect(c.map(x => x.iso2)).toEqual(expect.arrayContaining(['IT', 'FR']))
+  })
   it('Sort by alphabetic iso2', () => {
     const c = Countries.getCountries({
       sort: {

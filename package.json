@@ -5,9 +5,53 @@
   "description": "Get the World's countries, states, regions and cities",
   "repository": "https://github.com/Randagio13/countries-states-cities-service.git",
   "license": "MIT",
-  "typings": "lib/index.d.ts",
-  "module": "lib/index.js",
-  "exports": "./lib/index.js",
+  "type": "module",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/index.cjs"
+      }
+    },
+    "./countries": {
+      "import": {
+        "types": "./lib/countries.d.ts",
+        "default": "./lib/countries.js"
+      },
+      "require": {
+        "types": "./lib/countries.d.cts",
+        "default": "./lib/countries.cjs"
+      }
+    },
+    "./states": {
+      "import": {
+        "types": "./lib/states.d.ts",
+        "default": "./lib/states.js"
+      },
+      "require": {
+        "types": "./lib/states.d.cts",
+        "default": "./lib/states.cjs"
+      }
+    },
+    "./cities": {
+      "import": {
+        "types": "./lib/cities.d.ts",
+        "default": "./lib/cities.js"
+      },
+      "require": {
+        "types": "./lib/cities.d.cts",
+        "default": "./lib/cities.cjs"
+      }
+    }
+  },
   "keywords": [
     "world",
     "countries",
@@ -20,55 +64,18 @@
     "package.json"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=18"
   },
+  "packageManager": "pnpm@11.1.2",
   "scripts": {
-    "alias": "npx tsc-alias",
-    "start": "tsc --watch",
-    "build": "tsc -b tsconfig.json --verbose --force",
-    "postbuild": "minimize-js lib",
-    "minify-json": "minify-json ./lib/data -w -s",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
-    "coverage": "jest --coverage",
-    "prepare": "npm run build",
-    "size": "size-limit",
-    "analyze": "size-limit --why",
-    "semantic-release": "semantic-release",
-    "publish:beta": ""
-  },
-  "release": {
-    "branches": [
-      "+([0-9])?(.{+([0-9]),x}).x",
-      "main",
-      "next",
-      "next-major",
-      {
-        "name": "beta",
-        "prerelease": true
-      },
-      {
-        "name": "alpha",
-        "prerelease": true
-      }
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git",
-      [
-        "@semantic-release/github",
-        {
-          "addReleases": "top"
-        }
-      ]
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run build"
-    }
+    "build": "tsup",
+    "start": "tsup --watch",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "prepare": "pnpm build",
+    "optimize-data": "node scripts/optimize-data.js",
+    "release": "lerna version --conventional-commits",
+    "publish:from-git": "lerna publish from-git --yes"
   },
   "prettier": {
     "printWidth": 80,
@@ -76,39 +83,11 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "size-limit": [
-    {
-      "path": "lib",
-      "limit": "5 MB",
-      "webpack": false
-    }
-  ],
   "devDependencies": {
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-typescript": "^7.16.7",
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/commit-analyzer": "^9.0.2",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^8.0.2",
-    "@semantic-release/npm": "^9.0.1",
-    "@semantic-release/release-notes-generator": "^10.0.3",
-    "@size-limit/preset-small-lib": "^7.0.8",
-    "@types/jest": "^27.4.1",
-    "cross-env": "^7.0.3",
-    "husky": "^7.0.4",
-    "jest": "^27.5.1",
-    "jest-esm-transformer": "^1.0.0",
-    "minify-json": "^1.0.0",
-    "minimize-js": "^1.3.0",
-    "semantic-release": "^19.0.2",
-    "size-limit": "^7.0.8",
-    "ts-jest": "^27.1.3",
-    "tslib": "^2.3.1",
-    "typescript": "^4.6.2"
-  },
-  "dependencies": {
-    "@ac-dev/cities-service": "^1.1.1",
-    "@ac-dev/countries-service": "^1.2.0",
-    "@ac-dev/states-service": "^1.1.0"
+    "@vitest/coverage-v8": "^2.1.9",
+    "lerna": "^8.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0"
   }
 }
