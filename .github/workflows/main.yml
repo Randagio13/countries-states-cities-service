@@ -46,11 +46,11 @@ jobs:
           node-version: 22
           cache: pnpm
           registry-url: https://registry.npmjs.org
+      - name: Authenticate with npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build package
         run: pnpm build
       - name: Publish
         run: pnpm publish:from-git
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
