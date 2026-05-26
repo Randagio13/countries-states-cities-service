@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/Randagio13/countries-states-cities-service/compare/v1.4.0...v1.4.1) (2026-05-26)
+
+
+### Bug Fixes
+
+* **ci:** skip publish if version already exists on npm ([44a55d6](https://github.com/Randagio13/countries-states-cities-service/commit/44a55d61629b83b1f64778e2565b75b30fb654c9))
+* resolve all audit vulnerabilities by upgrading dev deps ([#27](https://github.com/Randagio13/countries-states-cities-service/issues/27)) ([65a201f](https://github.com/Randagio13/countries-states-cities-service/commit/65a201f415e0981d4e13fa87d561d8fea4a1fe21))
+
+
+
+
+
+## [1.4.1](https://github.com/Randagio13/countries-states-cities-service/compare/v1.4.0...v1.4.1) (2026-05-26)
+
+
+### Bug Fixes
+
+* **ci:** skip publish if version already exists on npm ([44a55d6](https://github.com/Randagio13/countries-states-cities-service/commit/44a55d61629b83b1f64778e2565b75b30fb654c9))
+* resolve all audit vulnerabilities by upgrading dev deps ([#27](https://github.com/Randagio13/countries-states-cities-service/issues/27)) ([65a201f](https://github.com/Randagio13/countries-states-cities-service/commit/65a201f415e0981d4e13fa87d561d8fea4a1fe21))
+
+
+
+
+
 # [1.4.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.3.4...v1.4.0) (2026-05-25)
 
 
