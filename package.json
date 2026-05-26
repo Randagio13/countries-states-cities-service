@@ -3,6 +3,10 @@
   "author": "Alessandro Casazza",
   "version": "1.4.0",
   "description": "Get the World's countries, states, regions and cities",
+  "homepage": "https://github.com/Randagio13/countries-states-cities-service#readme",
+  "bugs": {
+    "url": "https://github.com/Randagio13/countries-states-cities-service/issues"
+  },
   "repository": "https://github.com/Randagio13/countries-states-cities-service.git",
   "license": "MIT",
   "type": "module",

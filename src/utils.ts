@@ -9,6 +9,7 @@ export function dataFiltered<D>(
   return data.filter(item => {
     const record = item as Record<string, unknown>
     return Object.entries(filters).every(([key, value]) => {
+      if (!Object.hasOwn(record, key)) return false
       const itemValue = record[key]
       if (Array.isArray(value)) {
         return (value as unknown[]).includes(itemValue)

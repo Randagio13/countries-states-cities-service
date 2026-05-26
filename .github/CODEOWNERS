@@ -1,0 +1,6 @@
+# All files require review from the maintainer
+* @Randagio13
+
+# CI/CD and publishing are security-critical paths
+.github/ @Randagio13
+package.json @Randagio13

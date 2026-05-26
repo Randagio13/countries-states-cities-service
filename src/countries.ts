@@ -26,7 +26,7 @@ export class Countries {
       const { locale } = args
       data = data.map(country => ({
         ...country,
-        name: country.translations[locale] || country.name,
+        name: (Object.hasOwn(country.translations, locale) && country.translations[locale]) || country.name,
       }))
     }
 

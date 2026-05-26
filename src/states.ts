@@ -30,7 +30,7 @@ export class States {
       const { locale } = args
       data = data.map(state => ({
         ...state,
-        name: state.translations?.[locale] || state.name,
+        name: (state.translations != null && Object.hasOwn(state.translations, locale) && state.translations[locale]) || state.name,
       }))
     }
 
