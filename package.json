@@ -11,50 +11,27 @@
   "license": "MIT",
   "type": "module",
   "main": "./lib/index.cjs",
-  "module": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "module": "./lib/index.mjs",
+  "types": "./lib/index.d.cts",
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
-      },
-      "require": {
-        "types": "./lib/index.d.cts",
-        "default": "./lib/index.cjs"
-      }
-    },
-    "./countries": {
-      "import": {
-        "types": "./lib/countries.d.ts",
-        "default": "./lib/countries.js"
-      },
-      "require": {
-        "types": "./lib/countries.d.cts",
-        "default": "./lib/countries.cjs"
-      }
-    },
-    "./states": {
-      "import": {
-        "types": "./lib/states.d.ts",
-        "default": "./lib/states.js"
-      },
-      "require": {
-        "types": "./lib/states.d.cts",
-        "default": "./lib/states.cjs"
-      }
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.cjs"
     },
     "./cities": {
-      "import": {
-        "types": "./lib/cities.d.ts",
-        "default": "./lib/cities.js"
-      },
-      "require": {
-        "types": "./lib/cities.d.cts",
-        "default": "./lib/cities.cjs"
-      }
-    }
+      "import": "./lib/cities.mjs",
+      "require": "./lib/cities.cjs"
+    },
+    "./countries": {
+      "import": "./lib/countries.mjs",
+      "require": "./lib/countries.cjs"
+    },
+    "./states": {
+      "import": "./lib/states.mjs",
+      "require": "./lib/states.cjs"
+    },
+    "./package.json": "./package.json"
   },
   "keywords": [
     "world",
@@ -72,8 +49,9 @@
   },
   "packageManager": "pnpm@11.1.2",
   "scripts": {
-    "build": "tsup",
-    "start": "tsup --watch",
+    "build": "tsdown",
+    "start": "tsdown --watch",
+    "check:exports": "pnpm build && attw --pack . --profile node16",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
     "prepare": "pnpm build",
@@ -88,16 +66,11 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^4.1.7",
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@vitest/coverage-v8": "^4.1.10",
     "lerna": "^9.0.7",
-    "tsup": "^8.0.0",
-    "typescript": "^5.0.0",
-    "vitest": "^4.1.7"
-  },
-  "pnpm": {
-    "overrides": {
-      "yaml": "^2.9.0",
-      "brace-expansion": "^5.0.6"
-    }
+    "tsdown": "^0.22.12",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
   }
 }
