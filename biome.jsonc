@@ -1,0 +1,54 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    // src/data/*.json are generated, single-line, and multi-megabyte.
+    // Formatting them re-indents the bundle and inflates it by ~250 KB.
+    "includes": [
+      "**",
+      "!src/data/*.json",
+      "!pnpm-lock.yaml",
+      "!CHANGELOG.md",
+      "!lib",
+      "!coverage"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80
+  },
+  "javascript": {
+    // Matches the style the codebase already used before Biome arrived.
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "asNeeded",
+      "arrowParentheses": "asNeeded",
+      "trailingCommas": "es5"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended",
+      "complexity": {
+        // Countries/States/Cities are the published API surface; turning them
+        // into loose functions would be a breaking change for every consumer.
+        "noStaticOnlyClass": "off"
+      },
+      "style": {
+        // `noUncheckedIndexedAccess` makes every index return `T | undefined`,
+        // so `!` is the idiomatic narrowing for lookups the data guarantees.
+        // That guarantee is enforced by specs/data-integrity.spec.ts.
+        "noNonNullAssertion": "off"
+      }
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
+}

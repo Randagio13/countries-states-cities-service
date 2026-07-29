@@ -8,7 +8,7 @@
 [![downloads](https://img.shields.io/npm/dm/countries-states-cities-service?style=flat-square&color=46bc99)](https://www.npmjs.com/package/countries-states-cities-service)
 [![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen?style=flat-square)](https://github.com/Randagio13/countries-states-cities-service)
 [![license](https://img.shields.io/npm/l/countries-states-cities-service?style=flat-square)](LICENSE)
-[![bundle size](https://img.shields.io/badge/cities%20bundle-6.5%20MB-blue?style=flat-square)](https://bundlephobia.com/package/countries-states-cities-service)
+[![bundle size](https://img.shields.io/badge/cities%20bundle-6.9%20MB-blue?style=flat-square)](https://bundlephobia.com/package/countries-states-cities-service)
 
 <br />
 
@@ -26,16 +26,16 @@ Every address form, user profile, and logistics app needs countries, states, and
 
 **This package gives you all three — fully offline, in one install:**
 
-| | |
-|---|---|
-| 🌐 **250** countries | with ISO2, ISO3, phone codes, currencies, timezones & translations |
-| 🗺️ **4,868** states & regions | with coordinates and locale support |
-| 🏙️ **147,418** cities | filtered, sorted, and ready in milliseconds |
-| 📦 **Zero** runtime dependencies | fully self-contained |
-| 🌲 **Tree-shakable** | import only what you need — countries bundle is just 204 KB |
-| 🔷 **TypeScript-first** | full type definitions included |
-| ⚡ **CJS + ESM** | works everywhere: Node.js, React, Vue, React Native, Next.js |
-| ✅ **100% test coverage** | no surprises in production |
+|                                  |                                                                    |
+| -------------------------------- | ------------------------------------------------------------------ |
+| 🌐 **250** countries             | with ISO2, ISO3, phone codes, currencies, timezones & translations |
+| 🗺️ **5,308** states & regions    | with coordinates and locale support                                |
+| 🏙️ **156,025** cities            | filtered, sorted, and ready in milliseconds                        |
+| 📦 **Zero** runtime dependencies | fully self-contained                                               |
+| 🌲 **Tree-shakable**             | import only what you need — countries bundle is just 222 KB        |
+| 🔷 **TypeScript-first**          | full type definitions included                                     |
+| ⚡ **CJS + ESM**                 | works everywhere: Node.js, React, Vue, React Native, Next.js       |
+| ✅ **100% test coverage**        | no surprises in production                                         |
 
 ---
 
@@ -60,9 +60,9 @@ The package ships with **subpath exports** so bundlers and mobile frameworks (Me
 import { Countries, States, Cities } from 'countries-states-cities-service'
 
 // Per-service — only loads what you need
-import { Countries } from 'countries-states-cities-service/countries' // ~204 KB
-import { States }    from 'countries-states-cities-service/states'    // ~584 KB
-import { Cities }    from 'countries-states-cities-service/cities'    // ~6.5 MB
+import { Countries } from 'countries-states-cities-service/countries' // ~222 KB (58 KB gzipped)
+import { States } from 'countries-states-cities-service/states' // ~666 KB (125 KB gzipped)
+import { Cities } from 'countries-states-cities-service/cities' // ~6.9 MB (2.4 MB gzipped)
 ```
 
 > On React Native? Use the subpath imports. Your users will thank you.
@@ -81,22 +81,37 @@ const countries = Countries.getCountries()
 
 // Filter by ISO2 or ISO3
 const italy = Countries.getCountries({ filters: { iso2: 'IT' } })
-const usa   = Countries.getCountries({ filters: { iso3: 'USA' } })
+const usa = Countries.getCountries({ filters: { iso3: 'USA' } })
 
 // Multiple countries at once
-const eu = Countries.getCountries({ filters: { iso2: ['IT', 'FR', 'DE', 'ES'] } })
+const eu = Countries.getCountries({
+  filters: { iso2: ['IT', 'FR', 'DE', 'ES'] },
+})
 
 // Localized names
 const countries_it = Countries.getCountries({ locale: 'it' })
 
 // Localized + filtered
-const italy_it = Countries.getCountries({ filters: { iso2: 'IT' }, locale: 'it' })
+const italy_it = Countries.getCountries({
+  filters: { iso2: 'IT' },
+  locale: 'it',
+})
 
 // Sorted
-const sorted = Countries.getCountries({ sort: { mode: 'alphabetical', key: 'name' } })
+const sorted = Countries.getCountries({
+  sort: { mode: 'alphabetical', key: 'name' },
+})
 ```
 
-**Supported locales:** `kr` `br` `pt` `nl` `hr` `fa` `de` `es` `fr` `ja` `it` `cn`
+**Supported locales:** `ar` `br` `de` `es` `fa` `fr` `hi` `hr` `it` `ja` `ko` `nl` `pl` `pt` `pt-BR` `ru` `tr` `uk` `zh-CN`
+
+`kr` and `cn` are still accepted as deprecated aliases for `ko` and `zh-CN`.
+Upstream renamed them, so in earlier versions those two matched nothing in the
+data and silently returned the untranslated name — they now resolve correctly.
+
+> **Note:** only country names are translated for every locale. State
+> translations exist for `it` alone; every other locale falls back to the
+> canonical state name. Cities are not translated.
 
 <details>
 <summary>Country object shape</summary>
@@ -147,16 +162,25 @@ const states = States.getStates()
 const it_states = States.getStates({ filters: { country_code: 'IT' } })
 
 // Filter by multiple countries
-const states = States.getStates({ filters: { country_code: ['IT', 'FR'] } })
+const it_fr_states = States.getStates({
+  filters: { country_code: ['IT', 'FR'] },
+})
 
 // Single state by code
-const liguria = States.getStates({ filters: { country_code: 'IT', state_code: 'GE' } })
+const genoa = States.getStates({
+  filters: { country_code: 'IT', state_code: 'GE' },
+})
 
 // Italian regions only
-const regions = States.getStates({ filters: { country_code: 'IT', is_region: true } })
+const regions = States.getStates({
+  filters: { country_code: 'IT', is_region: true },
+})
 
 // Localized state names
-const states_it = States.getStates({ filters: { country_code: 'IT' }, locale: 'it' })
+const states_it = States.getStates({
+  filters: { country_code: 'IT' },
+  locale: 'it',
+})
 
 // Sorted
 const sorted = States.getStates({ sort: { mode: 'alphabetical', key: 'name' } })
@@ -176,14 +200,23 @@ const cities = Cities.getCities()
 const it_cities = Cities.getCities({ filters: { country_code: 'IT' } })
 
 // Cities by multiple countries
-const cities = Cities.getCities({ filters: { country_code: ['IT', 'FR'] } })
+const it_fr_cities = Cities.getCities({
+  filters: { country_code: ['IT', 'FR'] },
+})
 
 // Cities by country + state
-const ligurian = Cities.getCities({ filters: { country_code: 'IT', state_code: '42' } })
+const genoese = Cities.getCities({
+  filters: { country_code: 'IT', state_code: 'GE' },
+})
 
 // Sorted
 const sorted = Cities.getCities({ sort: { mode: 'alphabetical', key: 'name' } })
 ```
+
+> **Match cities on a province, not a region.** Some `state_code` values are
+> regions (`is_region: true`) that sit above the provinces cities are actually
+> keyed to — filtering cities by Liguria's `'42'` returns nothing, while its
+> provinces (`'GE'`, `'IM'`, `'SP'`, `'SV'`) return results.
 
 ---
 
@@ -191,17 +224,44 @@ const sorted = Cities.getCities({ sort: { mode: 'alphabetical', key: 'name' } })
 
 All three services support the same sort options:
 
-| Mode | Description |
-|------|-------------|
-| `asc` | Original order (default) |
-| `desc` | Reversed order |
-| `alphabetical` | Locale-aware alphabetical by any key |
+| Mode           | Description                                          |
+| -------------- | ---------------------------------------------------- |
+| `asc`          | Bundled order, unchanged (default)                   |
+| `desc`         | Bundled order reversed — **not** a descending sort    |
+| `alphabetical` | Locale-aware ascending sort by any key               |
 
 ```typescript
 { sort: { mode: 'alphabetical', key: 'name' } }
 { sort: { mode: 'asc' } }
 { sort: { mode: 'desc' } }
 ```
+
+> **`desc` reverses, it does not sort.** It hands back the bundled order
+> backwards. Countries and states happen to ship name-ordered, so there `desc`
+> looks like reverse-alphabetical — but cities ship grouped by state and
+> alphabetical *within* each state, so reversing them is not a global ordering.
+> For a genuine descending sort, sort ascending and reverse the result:
+>
+> ```typescript
+> const zToA = Cities.getCities({ sort: { mode: 'alphabetical', key: 'name' } }).reverse()
+> ```
+
+---
+
+## Immutability
+
+Results are fresh arrays, but the objects inside are the canonical bundled
+records and are **frozen**. Read them freely; derive instead of mutating:
+
+```typescript
+const [italy] = Countries.getCountries({ filters: { iso2: 'IT' } })
+
+italy.name = 'Italia' // ✗ TypeError — the bundled data is frozen
+const renamed = { ...italy, name: 'Italia' } // ✓ derive a copy
+```
+
+In earlier versions that assignment silently succeeded and corrupted the data
+for every later call in the process — `Cities` worst of all, since it memoises.
 
 ---
 

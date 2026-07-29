@@ -52,6 +52,10 @@
     "build": "tsdown",
     "start": "tsdown --watch",
     "check:exports": "pnpm build && attw --pack . --profile node16",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check",
+    "lint:fix": "biome check --write",
+    "format": "biome format --write",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
     "prepare": "pnpm build",
@@ -59,18 +63,14 @@
     "release": "lerna version --conventional-commits",
     "publish:from-git": "lerna publish from-git --yes"
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.5",
+    "@biomejs/biome": "^2.5.5",
     "@vitest/coverage-v8": "^4.1.10",
     "lerna": "^9.0.7",
     "tsdown": "^0.22.12",
     "typescript": "^5.9.3",
+    "vite": "^8.1.5",
     "vitest": "^4.1.10"
   }
 }

@@ -1,15 +1,40 @@
+/**
+ * Locales carried by the bundled dataset.
+ *
+ * `country.translations` covers all of these; `state.translations` currently
+ * only ever carries `it`, so other locales fall back to the canonical name.
+ */
 export type TranslationLocale =
-  | 'kr'
+  | 'ar'
   | 'br'
-  | 'pt'
-  | 'nl'
-  | 'hr'
-  | 'fa'
   | 'de'
   | 'es'
+  | 'fa'
   | 'fr'
-  | 'ja'
+  | 'hi'
+  | 'hr'
   | 'it'
+  | 'ja'
+  | 'ko'
+  | 'nl'
+  | 'pl'
+  | 'pt'
+  | 'pt-BR'
+  | 'ru'
+  | 'tr'
+  | 'uk'
+  | 'zh-CN'
+  /**
+   * @deprecated Upstream renamed this locale to `ko`. Still accepted and now
+   * resolves correctly — it previously matched nothing and silently returned
+   * the untranslated name.
+   */
+  | 'kr'
+  /**
+   * @deprecated Upstream renamed this locale to `zh-CN`. Still accepted and now
+   * resolves correctly — it previously matched nothing and silently returned
+   * the untranslated name.
+   */
   | 'cn'
 
 export type SortType = 'alphabetical' | 'asc' | 'desc'
