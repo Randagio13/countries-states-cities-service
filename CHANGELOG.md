@@ -11,14 +11,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.5.1](https://github.com/Randagio13/countries-states-cities-service/compare/v1.5.0...v1.5.1) (2026-07-29)
-
-**Note:** Version bump only for package countries-states-cities-service
-
-
-
-
-
 # [1.5.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.4.2...v1.5.0) (2026-07-29)
 
 
