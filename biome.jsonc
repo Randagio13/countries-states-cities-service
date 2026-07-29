@@ -3,11 +3,15 @@
   "files": {
     // src/data/*.json are generated, single-line, and multi-megabyte.
     // Formatting them re-indents the bundle and inflates it by ~250 KB.
+    //
+    // lerna.json is rewritten by `lerna version` on every release, which
+    // drops its trailing newline — same reason CHANGELOG.md is excluded.
     "includes": [
       "**",
       "!src/data/*.json",
       "!pnpm-lock.yaml",
       "!CHANGELOG.md",
+      "!lerna.json",
       "!lib",
       "!coverage"
     ]
