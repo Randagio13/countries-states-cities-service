@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.4.2...v1.5.0) (2026-07-29)
+
+
+### Features
+
+* harden data integrity/immutability, fix locale aliases, migrate to biome ([#35](https://github.com/Randagio13/countries-states-cities-service/issues/35)) ([f875fdc](https://github.com/Randagio13/countries-states-cities-service/commit/f875fdcf0b51d2b5d8bb04833cf5db626503325c))
+
+
+
+
+
+# [1.5.0](https://github.com/Randagio13/countries-states-cities-service/compare/v1.4.2...v1.5.0) (2026-07-29)
+
+
+### Features
+
+* harden data integrity/immutability, fix locale aliases, migrate to biome ([#35](https://github.com/Randagio13/countries-states-cities-service/issues/35)) ([f875fdc](https://github.com/Randagio13/countries-states-cities-service/commit/f875fdcf0b51d2b5d8bb04833cf5db626503325c))
+
+
+
+
+
 ## [1.4.2](https://github.com/Randagio13/countries-states-cities-service/compare/v1.4.1...v1.4.2) (2026-07-21)
 
 **Note:** Version bump only for package countries-states-cities-service
