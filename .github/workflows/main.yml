@@ -26,10 +26,16 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Lint and format check
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
       - name: Run tests with coverage
         run: pnpm coverage
       - name: Build package
         run: pnpm build
+      - name: Check published type resolution
+        run: pnpm exec attw --pack . --profile node16
 
   publish:
     name: Publish
@@ -58,11 +64,20 @@ jobs:
         run: pnpm build
       - name: Publish
         run: |
+          set -euo pipefail
           VERSION=$(node -p "require('./package.json').version")
-          if npm view "countries-states-cities-service@$VERSION" version 2>/dev/null | grep -q "$VERSION"; then
-            echo "Version $VERSION already published, skipping"
+          # Distinguish "already published" from "the registry lookup failed".
+          # Treating a lookup error as "not published" would retry a publish
+          # that then fails on a duplicate version; treating it as "published"
+          # would silently skip a real release.
+          if PUBLISHED=$(npm view "countries-states-cities-service@$VERSION" version 2>/dev/null); then
+            echo "Version $PUBLISHED already published, skipping"
+          elif npm view countries-states-cities-service version >/dev/null 2>&1; then
+            echo "Publishing $VERSION with provenance"
+            npm publish --access public --provenance
           else
-            npm publish --access public
+            echo "::error::Cannot reach the npm registry; refusing to guess publish state"
+            exit 1
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

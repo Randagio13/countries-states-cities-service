@@ -1,6 +1,6 @@
-import type { City } from './types'
-import { dataFiltered, sorter, type SortArgs } from './utils'
 import rawData from './data/cities.json'
+import type { City } from './types'
+import { dataFiltered, deepFreeze, type SortArgs, sorter } from './utils'
 
 export type { City } from './types'
 
@@ -27,19 +27,21 @@ let _cache: City[] | undefined
 function citiesData(): City[] {
   if (_cache !== undefined) return _cache
   const { cc, ci, si, data } = packed
-  _cache = data.map(([id, name, state_code, cc_idx, lat, lon]) => {
-    const country_code = cc[cc_idx]!
-    return {
-      id,
-      name,
-      state_id: si[`${country_code}:${state_code}`]!,
-      state_code,
-      country_id: ci[country_code]!,
-      country_code,
-      latitude: String(lat / 10000),
-      longitude: String(lon / 10000),
-    }
-  })
+  _cache = deepFreeze(
+    data.map(([id, name, state_code, cc_idx, lat, lon]) => {
+      const country_code = cc[cc_idx]!
+      return {
+        id,
+        name,
+        state_id: si[`${country_code}:${state_code}`]!,
+        state_code,
+        country_id: ci[country_code]!,
+        country_code,
+        latitude: String(lat / 10000),
+        longitude: String(lon / 10000),
+      }
+    })
+  )
   return _cache
 }
 

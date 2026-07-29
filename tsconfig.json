@@ -1,5 +1,10 @@
 {
-  "include": ["src/**/*.ts", "specs/**/*.ts", "tsdown.config.ts", "vitest.config.ts"],
+  "include": [
+    "src/**/*.ts",
+    "specs/**/*.ts",
+    "tsdown.config.ts",
+    "vitest.config.ts"
+  ],
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
@@ -10,7 +15,9 @@
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./lib",
-    "rootDir": "./src",
+    // No `rootDir`: tsdown owns emit, and pinning it to ./src made `tsc` fail
+    // outright (TS6059) on the specs and config files that `include` covers.
+    "types": ["vitest/globals"],
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

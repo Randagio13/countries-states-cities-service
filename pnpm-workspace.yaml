@@ -4,5 +4,14 @@ allowBuilds:
   esbuild: true
   nx: true
 overrides:
+  # Floors for transitive dev-only advisories. These need bumping whenever a
+  # newer patch lands: a floor that stops moving becomes the vulnerability it
+  # was added to fix (^5.0.6 sat on two high-severity brace-expansion CVEs).
+  #
+  # `vite` is ALSO a direct devDependency, and has to be. Nothing declares it
+  # as a real dependency — vitest only lists it as a peer — and an override
+  # cannot rewrite a peer that no package depends on, so the floor here is
+  # ignored on its own. The direct devDependency is what actually pins it.
   yaml: ^2.9.0
-  brace-expansion: ^5.0.6
+  brace-expansion: ^5.0.8
+  vite: ^8.1.5

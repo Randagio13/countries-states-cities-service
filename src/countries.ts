@@ -1,10 +1,16 @@
-import type { Country, TranslationLocale } from './types'
-import { dataFiltered, sorter, type SortArgs } from './utils'
 import countriesDataRaw from './data/countries.json'
+import type { Country, TranslationLocale } from './types'
+import {
+  dataFiltered,
+  deepFreeze,
+  resolveTranslation,
+  type SortArgs,
+  sorter,
+} from './utils'
 
 export type { Country, TranslationLocale } from './types'
 
-const countriesData = countriesDataRaw as unknown as Country[]
+const countriesData = deepFreeze(countriesDataRaw as unknown as Country[])
 
 type CountryFilters = { iso2: string | string[] } | { iso3: string | string[] }
 
@@ -26,7 +32,7 @@ export class Countries {
       const { locale } = args
       data = data.map(country => ({
         ...country,
-        name: (Object.hasOwn(country.translations, locale) && country.translations[locale]) || country.name,
+        name: resolveTranslation(country.translations, locale, country.name),
       }))
     }
 

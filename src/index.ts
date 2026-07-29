@@ -1,4 +1,10 @@
-export type { Country, State, City, SortType, TranslationLocale } from './types'
+export { Cities } from './cities'
 export { Countries } from './countries'
 export { States } from './states'
-export { Cities } from './cities'
+export type {
+  City,
+  Country,
+  SortType,
+  State,
+  TranslationLocale,
+} from './types'
