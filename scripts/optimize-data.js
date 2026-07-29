@@ -9,9 +9,9 @@
  * states.json / countries.json: coordinate strings rounded to 4dp
  */
 
-import { readFileSync, writeFileSync } from 'fs'
-import { resolve, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { readFileSync, writeFileSync } from 'node:fs'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const dir = resolve(dirname(fileURLToPath(import.meta.url)), '../src/data')
 const read = f => JSON.parse(readFileSync(`${dir}/${f}`, 'utf8'))
@@ -26,8 +26,26 @@ let cities = read('cities.json')
 // Pass 1: raw array-of-objects → intermediate columnar (if needed)
 if (Array.isArray(cities)) {
   cities = {
-    fields: ['id', 'name', 'state_id', 'state_code', 'country_id', 'country_code', 'latitude', 'longitude'],
-    data: cities.map(c => [c.id, c.name, c.state_id, c.state_code, c.country_id, c.country_code, round4(c.latitude), round4(c.longitude)]),
+    fields: [
+      'id',
+      'name',
+      'state_id',
+      'state_code',
+      'country_id',
+      'country_code',
+      'latitude',
+      'longitude',
+    ],
+    data: cities.map(c => [
+      c.id,
+      c.name,
+      c.state_id,
+      c.state_code,
+      c.country_id,
+      c.country_code,
+      round4(c.latitude),
+      round4(c.longitude),
+    ]),
   }
   console.log(`cities.json  pass 1: array-of-objects → intermediate columnar`)
 }
@@ -68,25 +86,35 @@ if (!('cc' in cities)) {
   write('cities.json', packed)
   const before = JSON.stringify(cities).length
   const after = JSON.stringify(packed).length
-  console.log(`cities.json  pass 2: ${(before / 1024 / 1024).toFixed(2)} MB → ${(after / 1024 / 1024).toFixed(2)} MB (saved ${((before - after) / 1024).toFixed(0)} KB)`)
+  console.log(
+    `cities.json  pass 2: ${(before / 1024 / 1024).toFixed(2)} MB → ${(after / 1024 / 1024).toFixed(2)} MB (saved ${((before - after) / 1024).toFixed(0)} KB)`
+  )
 } else {
   console.log('cities.json already fully optimised, skipping')
 }
 
 // --- States ---
 const states = read('states.json')
-write('states.json', states.map(s => ({
-  ...s,
-  latitude: round4str(s.latitude),
-  longitude: round4str(s.longitude),
-})))
-console.log(`states.json  ${states.length.toLocaleString()} records → 4dp coords`)
+write(
+  'states.json',
+  states.map(s => ({
+    ...s,
+    latitude: round4str(s.latitude),
+    longitude: round4str(s.longitude),
+  }))
+)
+console.log(
+  `states.json  ${states.length.toLocaleString()} records → 4dp coords`
+)
 
 // --- Countries ---
 const countries = read('countries.json')
-write('countries.json', countries.map(c => ({
-  ...c,
-  latitude: round4str(c.latitude),
-  longitude: round4str(c.longitude),
-})))
+write(
+  'countries.json',
+  countries.map(c => ({
+    ...c,
+    latitude: round4str(c.latitude),
+    longitude: round4str(c.longitude),
+  }))
+)
 console.log(`countries.json  ${countries.length} records → 4dp coords`)

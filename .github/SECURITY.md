@@ -2,10 +2,14 @@
 
 ## Supported Versions
 
-| Version | Supported |
-| ------- | --------- |
-| 1.4.x   | ✅ Yes    |
-| < 1.4   | ❌ No     |
+Only the **latest published minor** receives security fixes. Older minors are
+not patched — upgrade to the current release, which you can check with
+`npm view countries-states-cities-service version`.
+
+This package ships **no runtime dependencies**, so a vulnerability in the
+development toolchain (`pnpm audit`) does not reach code you install. Advisories
+that only affect `devDependencies` are therefore not treated as security issues
+in released artifacts.
 
 ## Reporting a Vulnerability
 
